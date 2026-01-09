@@ -1,0 +1,32 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+const { frontmatter } = Astro.props;
+---
+
+<style>
+	a {
+		color: purple;
+		text-decoration: none;
+	}
+
+	.tags {
+		display: flex;
+		flex-wrap: wrap;
+	}
+</style>
+
+<BaseLayout pageTitle={frontmatter.title} ;>
+	<div class="content">
+		<p class="pubDate">{frontmatter.pubDate}</p>
+		<slot />
+		<div class="tags">
+			{
+				frontmatter.tags.map((tag) => (
+					<p class="buttons">
+						<a href={`/tags/${tag}`}>{tag}</a>
+					</p>
+				))
+			}
+		</div>
+	</div>
+</BaseLayout>
