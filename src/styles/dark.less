@@ -1,0 +1,58 @@
+/* DARK MODE AND TOGGLE STYLES */
+
+/*-- -------------------------- -->
+<---      Core Dark Styles      -->
+<--- -------------------------- -*/
+
+/* Mobile */
+@media only screen and (min-width: 0em) {
+
+	// Dark Mode Color Scheme
+	:root {
+		--dark: hsl(266 0 14%);
+		--medium: hsl(266 0 19%);
+		--accent: hsl(266 0 59%); //unused?
+	}
+
+	body.dark-mode {
+		background-color: var(--dark);
+
+		p,
+		li,
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6 {
+			color: var(--bodyTextColorWhite);
+		}
+
+		main a {
+			color: var(--linkLight);
+		}
+
+		// Blog content dark mode styles
+		#blog-content {
+
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6 {
+				color: var(--bodyTextColorWhite);
+			}
+
+			p,
+			li {
+				color: var(--bodyTextColorWhite);
+				opacity: 0.8;
+			}
+
+			a {
+				color: var(--linkLight);
+			}
+		}
+	}
+}

@@ -1,0 +1,17 @@
+[
+  {
+    "key": "Home",
+    "url": "/",
+    "children": []
+  },
+  {
+    "key": "About",
+    "url": "/about",
+    "children": []
+  },
+  {
+    "key": "Music",
+    "url": "/music",
+    "children": []
+  }
+]

@@ -1,0 +1,185 @@
+---
+const { url, title, text, button } = Astro.props;
+---
+
+<section id="sbs-2201">
+	<div class="cs-container">
+		<div class="cs-content">
+			<h1 class="cs-title">
+				{title}
+			</h1>
+			<div class="cs-text">
+				{text}
+			</div>
+			<a href={url} class="cs-button-solid">{button}</a>
+		</div>
+		<div class="cs-image-group">
+			<!--Main Image-->
+			<picture class="cs-picture">
+				<!--Mobile Image-->
+				<source
+					media="(max-width: 600px)"
+					srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/wedding4.jpeg"
+				/>
+				<!--Tablet and above Image-->
+				<source
+					media="(min-width: 601px)"
+					srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/wedding4.jpeg"
+				/>
+				<img
+					loading="lazy"
+					decoding="async"
+					src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/wedding4.jpeg"
+					alt="wedding"
+					width="272"
+					height="337"
+				/>
+			</picture>
+		</div>
+	</div>
+</section>
+
+<style lang="less">
+	/*-- -------------------------- -->
+<---       Side By Side         -->
+<--- -------------------------- -*/
+
+	/* Mobile - 360px */
+	@media only screen and (min-width: 0rem) {
+		#sbs-2201 {
+			padding: var(--sectionPadding);
+			overflow: hidden;
+			position: relative;
+			z-index: 1;
+
+			.cs-container {
+				width: 100%;
+				/* changes to 1280px at tablet */
+				max-width: (704/16rem);
+				margin: auto;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				/* 48px - 64px */
+				gap: clamp(3rem, 6vw, 4rem);
+			}
+
+			.cs-content {
+				/* set text align to left if content needs to be left aligned */
+				text-align: center;
+				width: 100%;
+				max-width: (586/16rem);
+				display: flex;
+				flex-direction: column;
+				/* centers content horizontally, set to flex-start to left align */
+				align-items: center;
+			}
+
+			.cs-title {
+				width: 100%;
+			}
+
+			.cs-text {
+				margin-bottom: (24/16rem);
+			}
+
+			.cs-image-group {
+				/* scales the whole section down and ties the font size to the vw and stops at 75% of the vale of 1em, changes at desktop */
+				font-size: ~"min(2.3vw, .75rem)";
+				/* everything inside this box is in ems so we can scale it all down proportionally with a font size */
+				width: (630/16em);
+				height: (627/16em);
+				order: -1;
+				position: relative;
+				/* prevents flexbox from squishing it */
+				flex: none;
+				margin-top: clamp(2rem, 6.3vw, 3rem);
+			}
+
+			.cs-picture {
+				//height: (320/16rem);
+				/* 24px - 40px top & bottom */
+				/* 20px - 40px left & right */
+				//padding: clamp(1.5rem, 3vw, 2.5rem) clamp(1.25rem, 3vw, 2.5rem);
+				//margin-top: clamp(2rem, 6.3vw, 3rem);
+				//border-radius: (8/16rem);
+				border: (4/16rem) solid;
+				border-image-slice: 1;
+				border-width: (2/16rem);
+				border-image-source: linear-gradient(
+					to right,
+					var(--secondary),
+					var(--secondaryLight)
+				);
+				transition: border 0.3s;
+
+				width: 100%;
+				height: 100%;
+				display: block;
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: -1;
+
+				img {
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+					position: absolute;
+					top: 0;
+					left: 0;
+				}
+			}
+		}
+	}
+
+	/* Tablet - 768px */
+	@media only screen and (min-width: 48rem) {
+		#sbs-2201 {
+			.cs-container {
+				max-width: (1280/16rem);
+			}
+		}
+	}
+
+	/* Desktop - 1024px */
+	@media only screen and (min-width: 64rem) {
+		#sbs-2201 {
+			.cs-container {
+				flex-direction: row;
+				display: flex;
+				justify-content: flex-end;
+				align-items: center;
+				gap: (80/16rem);
+			}
+
+			.cs-content {
+				text-align: left;
+				padding: (48/16rem) 0;
+				align-self: center;
+				align-items: flex-start;
+			}
+		}
+	}
+
+	/* Dark Mode */
+	@media only screen and (min-width: 0rem) {
+		body.dark-mode {
+			#sbs-2201 {
+				.cs-title,
+				.cs-text {
+					color: var(--bodyTextColorWhite);
+				}
+
+				.cs-button-solid {
+					color: var(--bodyTextColor);
+					background-color: var(--secondary);
+
+					&:hover {
+						background-color: var(--secondaryLight);
+					}
+				}
+			}
+		}
+	}
+</style>

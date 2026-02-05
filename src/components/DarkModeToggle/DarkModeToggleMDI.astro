@@ -1,0 +1,126 @@
+---
+
+---
+
+<button
+	id="dark-mode-toggle"
+	aria-label="dark mode toggle"
+	aria-pressed="false"
+>
+	<svg
+		class="theme-light-dark"
+		xmlns="http://www.w3.org/2000/svg"
+		viewBox="0 0 24 24"
+		><path
+			d="M7.5,2C5.71,3.15 4.5,5.18 4.5,7.5C4.5,9.82 5.71,11.85 7.53,13C4.46,13 2,10.54 2,7.5A5.5,5.5 0 0,1 7.5,2M19.07,3.5L20.5,4.93L4.93,20.5L3.5,19.07L19.07,3.5M12.89,5.93L11.41,5L9.97,6L10.39,4.3L9,3.24L10.75,3.12L11.33,1.47L12,3.1L13.73,3.13L12.38,4.26L12.89,5.93M9.59,9.54L8.43,8.81L7.31,9.59L7.65,8.27L6.56,7.44L7.92,7.35L8.37,6.06L8.88,7.33L10.24,7.36L9.19,8.23L9.59,9.54M19,13.5A5.5,5.5 0 0,1 13.5,19C12.28,19 11.15,18.6 10.24,17.93L17.93,10.24C18.6,11.15 19,12.28 19,13.5M14.6,20.08L17.37,18.93L17.13,22.28L14.6,20.08M18.93,17.38L20.08,14.61L22.28,17.15L18.93,17.38M20.08,12.42L18.94,9.64L22.28,9.88L20.08,12.42M9.63,18.93L12.4,20.08L9.87,22.27L9.63,18.93Z"
+		></path></svg
+	>
+</button>
+
+<script>
+	// helper function to toggle aria-pressed
+	function ariaPressed(element) {
+		const isPressed = element.getAttribute("aria-pressed");
+		element.setAttribute(
+			"aria-pressed",
+			isPressed === "false" ? "true" : "false",
+		);
+	}
+	// Creates the dark mode toggle event listener
+	const setToggleListener = () => {
+		const darkModeToggleButton = document.getElementById("dark-mode-toggle");
+		const handleToggleClick = () => {
+			document.body.classList.toggle("dark-mode");
+			ariaPressed(darkModeToggleButton);
+			const isDark = document.body.classList.contains("dark-mode");
+			localStorage.setItem("theme", isDark ? "dark" : "light");
+		};
+
+		darkModeToggleButton?.addEventListener("click", handleToggleClick);
+	};
+
+	setToggleListener();
+
+	document.addEventListener("astro:after-swap", setToggleListener); // For View Transitions purposes - astro:after-swap ensures that the listener is re-attached after navigating to a new page.
+</script>
+
+<style lang="less">
+	/*-- -------------------------- -->
+<---      Dark Mode Toggle      -->
+<--- -------------------------- -*/
+
+	/* Mobile - 360px */
+	@media only screen and (min-width: 0rem) {
+		body.dark-mode {
+			#dark-mode-toggle {
+				.theme-light-dark {
+					fill: #fff;
+					@media (prefers-reduced-motion: no-preference) {transition: all 0.3s;}
+				}
+			}
+		}
+
+		#dark-mode-toggle {
+			width: (48/16rem);
+			height: (48/16rem);
+			padding: 0;
+			background: transparent;
+			border: none;
+			display: block;
+			position: absolute;
+			top: (10/16rem);
+			right: (70/16rem);
+			z-index: 1000;
+			overflow: hidden;
+
+			img,
+			svg {
+				width: (20/16rem);
+				height: (20/16rem);
+				//center image inside button
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				pointer-events: none;
+			}
+
+			.theme-light-dark {
+				fill: #000; //icon color
+				@media (prefers-reduced-motion: no-preference) {transition: all 0.3s;}
+			}
+		}
+	}
+
+	/* Desktop - 1024px */
+	@media only screen and (min-width: 64rem) {
+		#dark-mode-toggle {
+			margin: 0;
+			position: relative;
+			top: auto;
+			right: auto;
+			transform: none;
+
+			&:hover {
+				cursor: pointer;
+			}
+		}
+	}
+
+	//animations
+	/*@media (prefers-reduced-motion: no-preference) {
+		#dark-mode-toggle {
+			transition: filter 0.3s ease;
+
+			&:hover {
+				cursor: pointer;
+				filter: drop-shadow(0px 0px (2/16rem) hsla(0, 0, 0, 0.3));
+			}
+		}
+		body.dark-mode #dark-mode-toggle {
+			&:hover {
+				filter: drop-shadow(0px 0px (2/16rem) hsla(0, 0, 100%, 0.5)) drop-shadow(0px 0px (4/16rem) hsla(0, 0, 100%, 1));
+			}
+		}
+	}*/
+</style>

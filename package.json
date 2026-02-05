@@ -1,0 +1,26 @@
+{
+	"name": "blog-template",
+	"type": "module",
+	"version": "3.0.0",
+	"scripts": {
+		"astro": "astro dev",
+		"dev": "astro dev",
+		"start": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"remove-decap": "node scripts/remove-decap.js",
+		"remove-demo": "node scripts/remove-demo.js"
+	},
+	"dependencies": {
+		"@astrojs/rss": "^4.0.15",
+		"@astrojs/sitemap": "^3.7.0",
+		"@mdi/svg": "^7.4.47",
+		"astro": "^5.16.16",
+		"astro-icon": "^1.1.5",
+		"autoprefixer": "^10.4.24",
+		"less": "^4.5.1"
+	},
+	"devDependencies": {
+		"netlify-plugin-cache": "^1.0.3"
+	}
+}

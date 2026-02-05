@@ -1,0 +1,116 @@
+---
+// Utils
+import { getImage } from "astro:assets";
+
+// Components
+import BaseLayout from "@layouts/BaseLayout.astro";
+import CTABanner from "@components/CTA/CTABanner.astro";
+
+// Images
+import placeholderImg from "@assets/images/placeholder.jpg";
+
+const optimizedPlaceholder = await getImage({
+	src: placeholderImg,
+	format: "webp",
+});
+---
+
+<BaseLayout
+	title="Welcome"
+	description="Your new Astro site"
+	heroImage={optimizedPlaceholder}
+>
+	<main id="main">
+		<section id="welcome">
+			<div class="cs-container">
+				<div class="cs-content">
+					<h1>Welcome to Your Astro Site</h1>
+					<p>
+						This template has been stripped to bare minimum. All demo content
+						has been moved to <code>scripts/deleted/</code> and can be safely deleted.
+					</p>
+					<p>
+						Get started by reading the
+						<a href="https://github.com/yourusername/yourrepo#getting-started">
+							Getting Started
+						</a>
+						section in the README.
+					</p>
+				</div>
+			</div>
+		</section>
+	</main>
+	<CTABanner
+		url="/music"
+		title="The Colors of Light, Op. 0"
+		button="Listen Now"
+	/>
+</BaseLayout>
+
+<style lang="less">
+	#welcome {
+		padding: 100px 16px;
+
+		.cs-container {
+			max-width: 1280px;
+			margin: 0 auto;
+		}
+
+		.cs-content {
+			max-width: 800px;
+			margin: 0 auto;
+			text-align: center;
+
+			h1 {
+				margin-bottom: 24px;
+				font-size: clamp(2rem, 5vw, 3rem);
+			}
+
+			p {
+				margin-bottom: 16px;
+				font-size: 1.125rem;
+				line-height: 1.6;
+			}
+
+			code {
+				padding: 2px 8px;
+				background: #f4f4f4;
+				border-radius: 4px;
+				font-family: monospace;
+			}
+
+			a {
+				color: var(--link);
+				text-decoration: underline;
+
+				&:hover {
+					opacity: 0.8;
+				}
+			}
+		}
+	}
+
+	/* Dark mode */
+	@media only screen and (prefers-color-scheme: dark) {
+		#welcome {
+			.cs-content {
+				code {
+					background: #2a2a2a;
+				}
+			}
+		}
+	}
+
+	body.dark-mode {
+		#welcome {
+			.cs-content {
+				code {
+					background: var(--dark);
+				}
+				a {
+					color: var(--linkLight);
+				}
+			}
+		}
+	}
+</style>
