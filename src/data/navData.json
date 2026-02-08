@@ -6,12 +6,17 @@
   },
   {
     "key": "About",
-    "url": "/about",
+    "url": "/about/",
     "children": []
   },
   {
     "key": "Music",
-    "url": "/music",
-    "children": []
+    "url": "/music/",
+    "children": [
+      {
+        "key": "The Colors of Light, Op. 0",
+        "url": "/music/the-colors-of-light-op-0/"
+      }
+    ]
   }
 ]

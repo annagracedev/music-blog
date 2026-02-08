@@ -10,7 +10,6 @@ import { getCurrentYear } from "@js/utils";
 const currentYear = getCurrentYear();
 ---
 
-<!-- ============================================ --><!--                  Footer                      --><!-- ============================================ -->
 <footer id="footer">
 	<div class="cs-container">
 		<div class="cs-top">
@@ -32,10 +31,19 @@ const currentYear = getCurrentYear();
 							>
 								{entry.children?.length > 0 ? (
 									// If entry has children in navData.json, create a button and a dropdown icon
-									<span class="cs-li-nav">{entry.key}</span>
+									// EXCEPT for this site I am linking to the folder as well
+									<a href={entry.url} class:list={[
+											"cs-li-nav",
+											{ "cs-active": Astro.url.pathname === (entry.url) },
+										]}>
+										{entry.key}
+									</a>
 								) : (
 									// If entry does not have children in navData.json, create an anchor
-									<a href={entry.url} class="cs-link">
+									<a href={entry.url} class:list={[
+											"cs-link",
+											{ "cs-active": Astro.url.pathname === (entry.url) },
+										]}>
 										{entry.key}
 									</a>
 								)}
@@ -59,7 +67,10 @@ const currentYear = getCurrentYear();
 						))
 					}
 					<li class="cs-li">
-						<a href="/contact" class="cs-link"> Contact </a>
+						<a href="/contact/" class:list={[
+											"cs-link",
+											{ "cs-active": Astro.url.pathname === "/contact/" },
+										]}> Contact </a>
 					</li>
 				</ul>
 			</div>
@@ -154,7 +165,7 @@ const currentYear = getCurrentYear();
 						>Designed by Anna Grace</a
 					></span
 				>
-				<span>© {currentYear}</span>
+				<span>© {currentYear}. All rights reserved.</span>
 			</div>
 		</div>
 	</div>
@@ -244,7 +255,15 @@ const currentYear = getCurrentYear();
 
 			.cs-li-nav {
 				font-weight: bold;
+				text-decoration: none;
+				font-size: clamp(0.875rem, 1.5vw, 1rem);
 				color: var(--gray);
+				@media screen (prefers-reduced-motion: no-preference) {
+					transition: color 0.3s;
+				}
+				&:hover {
+					color: var(--secondary);
+				}
 			}
 
 			.cs-link {
@@ -255,11 +274,17 @@ const currentYear = getCurrentYear();
 				margin: 0;
 				color: var(--gray);
 				display: block;
-				transition: color 0.3s;
+				@media screen (prefers-reduced-motion: no-preference) {
+					transition: color 0.3s;
+				}
 
 				&:hover {
 					color: var(--secondary);
 				}
+			}
+
+			.cs-active {
+				text-decoration: underline;
 			}
 
 			.cs-logo {

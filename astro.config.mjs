@@ -3,7 +3,7 @@ import sitemap from "@astrojs/sitemap";
 import icon from "astro-icon";
 
 export default defineConfig({
-	site: "https://www.yourwebsite.com", // update to music.annagrace.dev
+	site: "https://www.yourwebsite.com", // update
 	integrations: [
 		icon(),
 		sitemap({

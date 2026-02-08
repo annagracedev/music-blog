@@ -5,9 +5,13 @@ import { getImage } from "astro:assets";
 // Components
 import BaseLayout from "@layouts/BaseLayout.astro";
 import CTABanner from "@components/CTA/CTABanner.astro";
+import SideBySide from "@components/SideBySide/SideBySide.astro";
 
 // Images
-import placeholderImg from "@assets/images/placeholder.jpg";
+import placeholderImg from "@assets/images/blog/roman-kraft-VfP_-Rmnhk4-unsplash.jpg";
+import image1 from "@assets/images/blog/roman-kraft-VfP_-Rmnhk4-unsplash.jpg";
+import image2 from "@assets/images/gvz-42-RyoPLIFEI7c-unsplash.jpg";
+
 
 const optimizedPlaceholder = await getImage({
 	src: placeholderImg,
@@ -24,32 +28,31 @@ const optimizedPlaceholder = await getImage({
 		<section id="welcome">
 			<div class="cs-container">
 				<div class="cs-content">
-					<h1>Welcome to Your Astro Site</h1>
+					<h1>I’m Anna,</h1>
 					<p>
-						This template has been stripped to bare minimum. All demo content
-						has been moved to <code>scripts/deleted/</code> and can be safely deleted.
-					</p>
-					<p>
-						Get started by reading the
-						<a href="https://github.com/yourusername/yourrepo#getting-started">
-							Getting Started
-						</a>
-						section in the README.
+						a classical musician and composer.
 					</p>
 				</div>
 			</div>
 		</section>
-	</main>
-	<CTABanner
-		url="/music"
-		title="The Colors of Light, Op. 0"
-		button="Listen Now"
+	<SideBySide 
+		url1="/music/the-colors-of-light-op-0/"
+		button1="Listen Now"
+		image1={image1}
+		title1="The Colors of Light, Op. 0"
+		desc1="Suite for Bb clarinet, harp, piano, cello, and double bass."
+		url2="/contact/"
+		button2="Contact"
+		image2={image2}
+		title2="Contact"
+		desc2="Music composition, theory, and arrangement lessons."
 	/>
+	</main>
 </BaseLayout>
 
 <style lang="less">
 	#welcome {
-		padding: 100px 16px;
+		padding: (100/16rem) 1rem 1rem;
 
 		.cs-container {
 			max-width: 1280px;

@@ -1,9 +1,9 @@
 // ===== SITE CONSTANTS =====
 export const SITE = {
 	title: "Anna Grace",
-	tagline: "Composition",
-	description: "Music composition",
-	url: "https://www.yourwebsite.com",
+	tagline: "Music Composition",
+	description: "Music composition and teaching",
+	url: "https://music.annagrace.dev",
 	author: "Anna Grace",
 	locale: "en",
 };

@@ -1,0 +1,47 @@
+---
+
+const cover = "/src/assets/images/blog/roman-kraft-VfP_-Rmnhk4-unsplash.jpg";
+const song = "/src/assets/mp3s/The Colors of Light/01 - Nightshade.mp3";
+const song2 = "/src/assets/mp3s/The Colors of Light/01 - Nightshade.mp3";
+
+// I have no idea why playlists are not working yet
+
+---
+
+<head><script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/mediaelement@latest/build/mediaelementplayer.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/mediaelement@latest/build/mediaelement-and-player.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mediaelement-plugins/5.0.0/playlist/playlist.min.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mediaelement-plugins/5.0.0/playlist/playlist.min.js"></script>
+
+</head>
+
+<body>
+<div class="audio-player">
+    <h1>Demo Song</h1>
+    <img class="cover" src={cover} alt="">
+    <audio id="audio-player" src={song} type="audio/mp3" controls></audio>
+		<source src={song2} type="audio/mp3" />
+</div>
+
+<script is:inline>
+		document.addEventListener('DOMContentLoaded', () => {
+    new MediaElementPlayer('audio-player', {
+      // Configuration options
+      // pluginPath: '/path/to/shims/',
+			iconSprite: '/src/styles/mejs-controls.svg',
+			features: ['playlist', 'prevtrack', 'playpause', 'nexttrack', 'current', 'progress', 'duration', 'volume'],
+      success: (media) => {
+        console.log('Player initialized');
+      }
+    });
+  });
+</script>
+</body>
+
+<style lang="less">
+	.audio-player img {
+		height: auto;
+		width: 10rem;
+	}
+</style>

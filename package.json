@@ -15,10 +15,13 @@
 		"@astrojs/rss": "^4.0.15",
 		"@astrojs/sitemap": "^3.7.0",
 		"@mdi/svg": "^7.4.47",
+		"@types/jquery": "^3.5.33",
 		"astro": "^5.16.16",
 		"astro-icon": "^1.1.5",
 		"autoprefixer": "^10.4.24",
-		"less": "^4.5.1"
+		"jquery": "^4.0.0",
+		"less": "^4.5.1",
+		"mediaelement": "^7.1.0"
 	},
 	"devDependencies": {
 		"netlify-plugin-cache": "^1.0.3"

@@ -19,6 +19,7 @@ const blogsCollection = defineCollection({
 		}),
 });
 
+
 export const collections = {
 	blog: blogsCollection,
 };

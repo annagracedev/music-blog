@@ -46,19 +46,19 @@ const { posts } = Astro.props;
 							</div>
 							<h2 class="blog-h1">{post.data.title}</h2>
 							<p class="blog-desc">{post.data.description}</p>
-							<a href={post.id} class="blog-link">
-								Continue Reading
+							<a href={`/blog/${post.id}/`} class="cs-button-solid">
+								Listen Now
 							</a>
 						</div>
 					</article>
 				))
 		}
 	</section>
-	<aside class="blog-sidebar">
+	<!--<aside class="blog-sidebar">
 		<div class="blog-sidebar_widget-wrapper">
 			<FeaturedPost />
 		</div>
-	</aside>
+	</aside>-->
 </section>
 
 <style lang="less">
