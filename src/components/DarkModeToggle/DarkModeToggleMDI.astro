@@ -45,11 +45,9 @@
 </script>
 
 <style lang="less">
-	/*-- -------------------------- -->
-<---      Dark Mode Toggle      -->
-<--- -------------------------- -*/
+	// MARK: CSS
 
-	/* Mobile - 360px */
+	// MARK: Mobile - 360px
 	@media only screen and (min-width: 0rem) {
 		body.dark-mode {
 			#dark-mode-toggle {
@@ -92,7 +90,7 @@
 		}
 	}
 
-	/* Desktop - 1024px */
+	// MARK: Desktop - 1024px
 	@media only screen and (min-width: 64rem) {
 		#dark-mode-toggle {
 			margin: 0;
@@ -107,20 +105,21 @@
 		}
 	}
 
-	//animations
-	/*@media (prefers-reduced-motion: no-preference) {
+	// MARK: Animations
+
+	@media only screen and (min-width: 64rem) and (prefers-reduced-motion: no-preference) {
 		#dark-mode-toggle {
 			transition: filter 0.3s ease;
 
 			&:hover {
 				cursor: pointer;
-				filter: drop-shadow(0px 0px (2/16rem) hsla(0, 0, 0, 0.3));
+				filter: var(--dropShadow);
 			}
 		}
 		body.dark-mode #dark-mode-toggle {
 			&:hover {
-				filter: drop-shadow(0px 0px (2/16rem) hsla(0, 0, 100%, 0.5)) drop-shadow(0px 0px (4/16rem) hsla(0, 0, 100%, 1));
+				filter: var(--dropShadowWhite);
 			}
 		}
-	}*/
+	}
 </style>

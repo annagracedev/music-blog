@@ -5,200 +5,202 @@ import { Picture, getImage } from "astro:assets";
 ---
 
 <section id="sbs">
-    <div class="cs-container">
-        <div class="cs-image-group">
-            <!--Top left image-->
-								<Picture
-									src={image1}
-									alt=""
-									layout="constrained"
-									widths={[400, 512, 800, 1024]}
-									format="jpg"
-									pictureAttributes={{ class:"cs-picture cs-picture1" }}
-								/>
-        </div>
-        <div class="cs-content">
-            <h2 class="cs-title">{title1}</h2>
-            <p class="cs-text">
-              {desc1}
-            </p>
-            <a href={url1} class="cs-button-solid">{button1}</a>
-        </div>
-    </div>
+	<div class="cs-container">
+		<div class="cs-image-group">
+			<!--Top left image-->
+			<Picture
+				src={image1}
+				alt=""
+				layout="constrained"
+				widths={[400, 512, 800, 1024]}
+				format="jpg"
+				pictureAttributes={{ class:"cs-picture" }}
+			/>
+		</div>
+		<div class="cs-content">
+			<h2 class="cs-title">{title1}</h2>
+			<p class="cs-text">
+					{desc1}
+			</p>
+			<a href={url1} class="cs-button-solid">{button1}</a>
+		</div>
+	</div>
 </section>
 
-<!-- ============================================ -->
-<!--             Side By Side Reverse             -->
-<!-- ============================================ -->
+<!-- MARK: Side By Side Reverse -->
 
 <section id="sbs-reverse">
-    <div class="cs-container">
-        <div class="cs-image-group">
-								<Picture
-									src={image2}
-									alt=""
-									layout="constrained"
-									widths={[400, 512, 800, 1024]}
-									format="jpg"
-									pictureAttributes={{ class:"cs-picture cs-picture1" }}
-								/>
-	        </div>
-        <div class="cs-content">
-            <h2 class="cs-title">{title2}</h2>
-            <p class="cs-text">
-                {desc2}
-            </p>
-            <a href={url2} class="cs-button-solid">{button2}</a>
-        </div>
-    </div>
+	<div class="cs-container">
+		<div class="cs-image-group">
+				<Picture
+					src={image2}
+					alt=""
+					layout="constrained"
+					widths={[400, 512, 800, 1024]}
+					format="jpg"
+					pictureAttributes={{ class:"cs-picture" }}
+				/>
+			</div>
+			<div class="cs-content">
+					<h2 class="cs-title">{title2}</h2>
+					<p class="cs-text">
+							{desc2}
+					</p>
+					<a href={url2} class="cs-button-solid">{button2}</a>
+			</div>
+	</div>
 </section>
 
 <style lang="less">
 
 /* Mobile - 360px */
 @media only screen and (min-width: 0rem) {
-    #sbs, #sbs-reverse {
-        padding: var(--sectionPadding);
-        
-        .cs-container {
-            width: 100%;
-            /* changes to 1280px at desktop */
-            max-width: (550/16rem);
-            margin: auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            /* 48px - 64px */
-            gap: clamp(3rem, 6vw, 4rem);
-        }
+	#sbs, #sbs-reverse {
+		padding: var(--sectionPadding);
+		
+		.cs-container {
+				width: 100%;
+				/* changes to 1280px at desktop */
+				max-width: (550/16rem);
+				margin: auto;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				/* 48px - 64px */
+				gap: 5rem;
+		}
 
-        .cs-content {
-            /* set text align to left if content needs to be left aligned */
-            text-align: left;
-            width: 100%;
-            max-width: (586/16rem);
-            display: flex;
-            flex-direction: column;
-            /* centers content horizontally, set to flex-start to left align */
-            align-items: flex-start;
-        }
+		.cs-content {
+			/* set text align to left if content needs to be left aligned */
+			text-align: left;
+			width: 100%;
+			max-width: (586/16rem);
+			display: flex;
+			flex-direction: column;
+			/* centers content horizontally, set to flex-start to left align */
+			align-items: flex-start;
+		}
 
-        .cs-text {
-            margin-bottom: (16/16rem);
-            &:last-of-type {
-                margin-bottom: (32/16rem);
-            }
-        }
+		.cs-title {
+			width: 100%;
+		}
 
-        .cs-image-group {
-            /* scales the whole group based on the view width size and stop when that vales equals .745em, resets at desktop */
-            font-size:~"min(1.959vw, .745em)";
-            width: (630/16em);
-            /* we set a minimum height so it never gets smaller than this value */
-            min-height: (628/16em);
-            display: block;
-            position: relative;
-            z-index: 1;
-        }
+		.cs-text {
+			margin-bottom: (16/16rem);
+			&:last-of-type {
+				margin-bottom: (32/16rem);
+			}
+		}
 
-        .cs-picture {
-            position: absolute;
+		.cs-image-group {
+			/* scales the whole group based on the view width size and stop when that vales equals .745em, resets at desktop */
+			font-size:~"min(1.959vw, .745em)";
+			width: (630/16em);
+			/* we set a minimum height so it never gets smaller than this value */
+			min-height: (628/16em);
+			display: block;
+			position: relative;
+			z-index: 1;
+		}
 
-            img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                position: absolute;
-                top: 0;
-                left: 0;
-            }
-        }
+		.cs-picture {
+			max-width: (413/16em);
+			display: block;
+			top: 0;
+			left: 0;
+			z-index: -1;
+			align-items: flex-start;
 
-        .cs-picture1 {
-            /* the percentage heights allow them to be responsive to the height of the parent cs-image-group. On desktop, when the felxbox is set to aling-items: stretch, the cs-image group will stretch to fill the height of the parent container. So when you add more content to the cs-content group and make it taller, the cs-image group will get taller with it and every image will stretch with the parent, making this entire group responsive to the changing amounts of content next to it */
-            width: (413/16em);
-            height: 79.617834%;
-            top: 0;
-            left: 0;
-            z-index: -1;
-        }
-    }
+			img {
+				width: 100%;
+				height: auto;
+				display: block;
+				/* Makes img tag act as a background image */
+				object-fit: cover;
+				top: 0;
+				left: 0;
+			}
+		}
+
+		.cs-picture1 {
+				/* the percentage heights allow them to be responsive to the height of the parent cs-image-group. On desktop, when the felxbox is set to aling-items: stretch, the cs-image group will stretch to fill the height of the parent container. So when you add more content to the cs-content group and make it taller, the cs-image group will get taller with it and every image will stretch with the parent, making this entire group responsive to the changing amounts of content next to it */
+				width: (413/16em);
+				height: 79.617834%;
+				top: 0;
+				left: 0;
+				z-index: -1;
+		}
+	}
 }
 
 /* Tablet - 768px */
 @media only screen and (min-width: 48rem) {
-    #sbs, #sbs-reverse {
-        .cs-container {
-            max-width: (1280/16rem);
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: stretch;
-        }
+	#sbs, #sbs-reverse {
+	.cs-container {
+		max-width: (1280/16rem);
+		flex-direction: row;
+		justify-content: center;
+		align-items: stretch;
+	}
 
-        .cs-content {
-            /* this padding sets a minimum gap between the top and bottom of the content div and the top and bottom of the cs-image-group */
-            padding: (60/16rem) 0;
-            /* while the cs-image-group will stretch to fill the height of the parent, this property will ensure that the cs-content group aligns itse;f in the center of the parent div instead of stretching */
-            align-self: center;
-        }
+	.cs-content {
+		/* this padding sets a minimum gap between the top and bottom of the content div and the top and bottom of the cs-image-group */
+		padding: (60/16rem) 0;
+		/* while the cs-image-group will stretch to fill the height of the parent, this property will ensure that the cs-content group aligns itse;f in the center of the parent div instead of stretching */
+		align-self: center;
+	}
 
-        .cs-image-group {
-            font-size:~"min(1.2vw, 1em)";
-            flex: none;
-        }
-    }
+	.cs-image-group {
+		font-size:~"min(1.2vw, 1em)";
+		flex: none;
+		}
+	}
 }
 
 /* Dark Mode */
 @media only screen and (min-width: 0rem) {
-    body.dark-mode {
-        #sbs, #sbs-reverse {
-
-						.cs-title {
-							width: 100%;
-						}
-            .cs-title, .cs-text {
-                color: var(--bodyTextColorWhite);
-								text-align: left;
-            }
-
-            .cs-text {
-                opacity: .8;
-            }
-        }
-    }
+	body.dark-mode {
+		#sbs, #sbs-reverse {
+			.cs-title {
+				width: 100%;
+			}
+			.cs-title, .cs-text {
+					color: var(--bodyTextColorWhite);
+					text-align: left;
+			}
+		}
+	}
 }
 
 
 /* Mobile - 360px */
 @media only screen and (min-width: 0rem) {
-    #sbs-reverse {
-        background-color: #f7f7f7;
+	#sbs-reverse {
+		background-color: #f7f7f7;
 
-        .cs-picture1 {
-            left: auto;
-            right: 0;
-        }
-    }
+		.cs-picture1 {
+			left: auto;
+			right: 0;
+		}
+	}
 }
 
 /* Tablet - 768px */
 @media only screen and (min-width: 48rem) {
-    #sbs-reverse {
-        .cs-image-group {
-            /* sends it to the right in the 2nd position */
-            order: 2;
-        }
-    }
+	#sbs-reverse {
+		.cs-image-group {
+			/* sends it to the right in the 2nd position */
+			order: 2;
+		}
+	}
 }
 
 /* Dark Mode */
 @media only screen and (min-width: 0rem) {
-    body.dark-mode {
-        #sbs-reverse {
-            background-color: rgba(0, 0, 0, .2);
-        }
-    }
+	body.dark-mode {
+		#sbs-reverse {
+				background-color: rgba(0, 0, 0, .2);
+		}
+	}
 }
-                                
 </style>

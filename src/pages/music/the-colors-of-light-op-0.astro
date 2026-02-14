@@ -13,7 +13,17 @@ const optimizedPlaceholder = await getImage({
 	src: placeholderImg,
 	format: "webp",
 });
+
+const cover = "/src/assets/images/blog/roman-kraft-VfP_-Rmnhk4-unsplash.jpg";
+
+//ok so playlist autoplay does not actually work
 ---
+
+<script is:inline src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/7.0.7/mediaelementplayer.min.css" rel="stylesheet">
+<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/7.0.7/mediaelement-and-player.min.js"></script>
+<link href="/src/styles/playlist.css" rel="stylesheet"/>
+<script is:inline src="/src/js/playlist.js"></script>
 
 <BaseLayout
 	title="Welcome"
@@ -26,10 +36,33 @@ const optimizedPlaceholder = await getImage({
 				<div class="cs-content">
 					<h1>The Colors of Light, Op. 0</h1>
 				</div>
+				<div class="audio-player">
+						<h1>Demo</h1>
+						<img class="cover" src={cover} alt="">
+						<audio id="audio-player" controls>
+							<source src="/src/assets/mp3s/The Colors of Light/01 - Nightshade.mp3" title="Nightshade (Op. 0, No. 1)" type="audio/mp3" />
+							<source src="/src/assets/mp3s/The Colors of Light/02 - Retrograde Heart.mp3" title="Retrograde Heart (Op. 0, No. 2)" type="audio/mp3" />
+							<source src="/src/assets/mp3s/The Colors of Light/03 - Crow's Justice.mp3" title="Crow’s Justice (Op. 0, No. 3)" type="audio/mp3" />
+							<source src="/src/assets/mp3s/The Colors of Light/04 - Aria.mp3" title="Aria (Op. 0, No. 4)" type="audio/mp3" />
+							<source src="/src/assets/mp3s/The Colors of Light/05 - Fantasy.mp3" title="Fantasy (Op. 0, No. 5)" type="audio/mp3" />
+							<source src="/src/assets/mp3s/The Colors of Light/06 - Galanthus.mp3" title="Galanthus (Op. 0, No. 6)" type="audio/mp3" />
+							<source src="/src/assets/mp3s/The Colors of Light/07 - DAYBREAK.mp3" title="DAYBREAK (Op. 0, No. 7)" type="audio/mp3" />
+							<source src="/src/assets/mp3s/The Colors of Light/08 - All the Lights.mp3" title="All the Lights (Op. 0, No. 8)" type="audio/mp3" />
+						</audio>
+				</div>
 			</div>
 		</section>
 	</main>
 </BaseLayout>
+
+<script is:inline>
+	window.addEventListener('load', () => {
+			new MediaElementPlayer('audio-player', {
+				iconSprite: '/src/styles/mejs-controls.svg',
+				features: ['playlist', 'prevtrack', 'playpause', 'nexttrack', 'current', 'progress', 'duration', 'volume']
+			});
+	});
+</script>
 
 <style lang="less">
 	#welcome {
@@ -95,6 +128,14 @@ const optimizedPlaceholder = await getImage({
 					color: var(--linkLight);
 				}
 			}
+		}
+	}
+
+	// MARK: Audio player
+	body {
+			.audio-player img {
+			height: auto;
+			width: 10rem;
 		}
 	}
 </style>

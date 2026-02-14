@@ -6,3 +6,5 @@ I actually sort of like the body text being set in italic?
 Maybe put my blog site in Anonymous Pro.
 
 Literally all the stuff with music playlists
+
+Why is the nav bar a different color in dark mode on mobile

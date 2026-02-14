@@ -3,7 +3,7 @@ import sitemap from "@astrojs/sitemap";
 import icon from "astro-icon";
 
 export default defineConfig({
-	site: "https://www.yourwebsite.com", // update
+	site: "https://music.annagrace.dev", // update
 	integrations: [
 		icon(),
 		sitemap({
@@ -15,4 +15,5 @@ export default defineConfig({
 	image: {
 		layout: "constrained",
 	},
+	devToolbar: { enabled: false }
 });

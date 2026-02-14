@@ -1,6 +1,4 @@
-/*-- -------------------------- -->
-<---         CSS Reset          -->
-<--- -------------------------- -*/
+// MARK: CSS Reset
 
 /* Modern CSS Reset - Based on Josh Comeau's reset */
 /* 1. Use a more-intuitive box-sizing model */
@@ -80,25 +78,27 @@ h6 {
 	isolation: isolate;
 }
 
-/*-- -------------------------- -->
-<---       CSS Variables        -->
-<--- -------------------------- -*/
+// MARK: CSS Variables
 
 @media only screen and (min-width: 0em) {
 	:root {
 		// Website colors
 		--primary: hsl(266 0 14%);
-		--primaryLight: hsl(266 0 22%);
-		--secondary: hsl(266 0 95%);
-		--secondaryLight: hsl(266 0 100%);
+		--primaryLight: hsl(266 0 20%);
+		--secondary: hsl(266 0 90%);
+		--secondaryLight: hsl(266 0 95%);
 		--link: #4D6AA0;
 		--linkLight: #256CF5;
 		--headerColor: hsl(266 0 14%);
 		--bodyTextColor: #000;
 		--bodyTextColorWhite: #fff;
-		--background: hsl(266 0 95%);
+		--background: hsl(266 0 100%);
 		--gray: hsl(266 0 73%);
 		--darkGray: hsl(266 0 61%);
+		--dropShadow: drop-shadow(0px 0px (2/16rem) hsla(0, 0, 0, 0.3));
+		--dropShadowWhite: drop-shadow(0px 0px (2/16rem) hsla(0, 0, 100%, 0.5)) drop-shadow(0px 0px (4/16rem) hsla(0, 0, 100%, 0.7));
+		--boxShadow: 0.125rem 0.125rem 0.25rem hsla(0, 0, 0, 0.1);
+		--boxShadowDark: 0.125rem 0.125rem 0.25rem hsla(0, 0, 0, 0.3);
 
 		/* 13px - 16px */
 		--topperFontSize: clamp(0.8125rem, 1.6vw, 1rem);
@@ -111,9 +111,7 @@ h6 {
 	}
 }
 
-/*-- -------------------------- -->
-<---       Font Faces           -->
-<--- -------------------------- -*/
+// MARK: Font faces
 
 // I will locally host these once I have settled
 
@@ -131,9 +129,7 @@ h6 {
 
 
 
-/*-- -------------------------- -->
-<---     Base Element Styles    -->
-<--- -------------------------- -*/
+// MARK: Base element styles
 
 body,
 html {
@@ -185,9 +181,7 @@ button {
 	}
 }
 
-/*-- -------------------------- -->
-<---   Typography Helpers       -->
-<--- -------------------------- -*/
+// MARK: Typography
 
 // Text styles - can be replaced using CodeStitch's "Content Flair" Stitches
 .cs-topper {
@@ -217,9 +211,7 @@ button {
 	color: var(--bodyTextColor);
 }
 
-/*-- -------------------------- -->
-<---    Component Classes       -->
-<--- -------------------------- -*/
+// MARK: Components
 
 @media only screen and (min-width: 0em) {
 
@@ -228,7 +220,8 @@ button {
 		font-style: normal;
 		font-size: (16/16rem);
 		font-weight: bold;
-		line-height: (48/16em); // height minus border width
+		//line-height: (48/16em); // height minus border width
+		line-height: (50/16rem);
 		text-align: center;
 		text-transform: uppercase;
 		text-decoration: none;
@@ -236,18 +229,20 @@ button {
 		height: (50/16rem);
 		padding: 0 (30/16rem);
 
+
+
 		// border
-		border: (4/16rem) solid;
-		border-image-slice: 1;
-		border-width: (2/16rem);
-		border-image-source: linear-gradient(to right, var(--primary), var(--primaryLight));
+		//border: (4/16rem) solid;
+		//border-image-slice: 1;
+		//border-width: (2/16rem);
+		//border-image-source: linear-gradient(to right, var(--primary), var(--primaryLight));
 
 		// Transition Properties
 		color: var(--bodyTextColorWhite);
 		background-color: var(--primary);
 		display: inline-block;
 		position: relative;
-		overflow: hidden;
+		//overflow: hidden;
 		z-index: 1;
 
 
@@ -307,9 +302,7 @@ button {
 	}
 }
 
-/*-- -------------------------- -->
-<---      Utility Classes       -->
-<--- -------------------------- -*/
+// MARK: Utility
 
 // prevents icons from shrinking in flex containers
 [data-icon] {
@@ -324,9 +317,7 @@ button {
 	display: block;
 }
 
-/*-- -------------------------- -->
-<---   Responsive Adjustments   -->
-<--- -------------------------- -*/
+// MARK: Responsive
 
 /* Desktop - 1024px */
 @media only screen and (min-width: 64rem) {
