@@ -7,7 +7,7 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 // import Banner from "@components/Banner/Banner.astro";
 
 // Images
-import landingImage from "@assets/images/matteo-vistocco-02qxB--kyAU-unsplash.jpg"; // <-- THE PATH TO THE ASSET YOU WANT TO PRELOAD - The asset must live in src
+import landingImage from "@assets/images/matteo-vistocco-02qxB--kyAU-unsplash.webp"; // <-- THE PATH TO THE ASSET YOU WANT TO PRELOAD - The asset must live in src
 //const optimizedImage = await getImage({ src: landingImage, format: "jpg" });
 
 const currentDate = new Date();
@@ -25,7 +25,7 @@ const musicYears = (() => {
 ---
 
 <!-- heroImage={optimizedImage}-->
-<BaseLayout title="About" description="Meta description for the page">
+<BaseLayout title="About" description="Modern classical composer trained in Western music theory.">
 	<!-- <Banner title="Contact" image={optimizedImage} />-->
 
 	<section id="cs-contact">
@@ -53,7 +53,7 @@ const musicYears = (() => {
 							I studied music composition with Dr. Robert Fruehwald and harp performance with Maria Duhova-Trevor, Chadie Fruehwald, and Sue Taylor.
 						</p>
 						<p>
-							Contact me about music composition lessons.
+							Contact me for music composition lessons.
 						</p>
 					</div>
 				</div>
@@ -149,7 +149,7 @@ const musicYears = (() => {
 					padding-left: (20/16rem);
 					border: 1px dotted var(--primary);
 					// border-radius: (8/16rem);
-					transition: all 0.3s;
+					transition: all 0.3s ease-in-out;
 					border-top: 0;
 					border-right: 0;
 					border-left: 0;
@@ -182,17 +182,7 @@ const musicYears = (() => {
 				/* 20px - 40px left & right */
 				margin-top: clamp(2rem, 6.3vw, 3rem);
 				//border-radius: (8/16rem);
-				border: (4/16rem) solid;
-				border-image-slice: 1;
-				border-width: (2/16rem);
-				border-image-source: linear-gradient(
-					to right,
-					var(--secondary),
-					var(--secondaryLight)
-				);
-				@media (prefers-reduced-motion: no-preference) {
-					transition: border 0.3s;
-				}
+				box-shadow: var(--boxShadow); 
 
 				display: flex;
 				flex-direction: column;
@@ -326,6 +316,7 @@ const musicYears = (() => {
 				// height: (686/16rem);
 				/* prevents flexbox from squishing it */
 				flex: none;
+				
 
 				/*&:hover {
 					.cs-bg-picture {
@@ -399,14 +390,6 @@ const musicYears = (() => {
 							border: 1px solid var(--secondary);
 						}
 					}
-				}
-
-				.image-card {
-					border-image-source: linear-gradient(
-						to right,
-						var(--primary),
-						var(--primaryLight)
-					);
 				}
 
 			}

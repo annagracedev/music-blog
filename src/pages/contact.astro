@@ -10,11 +10,11 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import { BUSINESS } from "@data/client";
 
 // Images
-import landingImage from "@assets/images/gvz-42-RyoPLIFEI7c-unsplash.jpg"; // <-- THE PATH TO THE ASSET YOU WANT TO PRELOAD - The asset must live in src
-//const optimizedImage = await getImage({ src: landingImage, format: "webp" });
+import landingImage from "@assets/images/gvz-42-RyoPLIFEI7c-unsplash.webp"; // <-- THE PATH TO THE ASSET YOU WANT TO PRELOAD - The asset must live in src
+const optimizedImage = await getImage({ src: landingImage, format: "webp" });
 ---
 
-<BaseLayout title="Contact" description="Meta description for the page">
+<BaseLayout title="Contact" description="Music composition lessons available online.">
 	<!-- <Banner title="Contact" image={optimizedImage} />-->
 
 	<section id="cs-contact">
@@ -32,7 +32,7 @@ import landingImage from "@assets/images/gvz-42-RyoPLIFEI7c-unsplash.jpg"; // <-
 							<p>
 								I teach music composition, theory, and arrangement via private lessons online.
 							</p>
-							<p>Please contact me for lesson availability and pricing.</p>
+							<p>Ask me about lesson availability and pricing.</p>
 						</div>
 					</div>
 					<label>
@@ -42,7 +42,6 @@ import landingImage from "@assets/images/gvz-42-RyoPLIFEI7c-unsplash.jpg"; // <-
 							type="text"
 							id="name"
 							name="name"
-							placeholder="Your name…"
 							autocomplete="name"
 						/>
 					</label>
@@ -53,7 +52,6 @@ import landingImage from "@assets/images/gvz-42-RyoPLIFEI7c-unsplash.jpg"; // <-
 							type="text"
 							id="email"
 							name="email"
-							placeholder="Your email…"
 							autocomplete="email"
 						/>
 					</label>
@@ -63,8 +61,7 @@ import landingImage from "@assets/images/gvz-42-RyoPLIFEI7c-unsplash.jpg"; // <-
 							required
 							name="Message"
 							id="message"
-							autocomplete="off"
-							placeholder="Your message…"></textarea>
+							autocomplete="off"></textarea>
 					</label>
 					<div class="cs-submit">
 						<button class="cs-button-solid" type="submit">Send Message</button>
@@ -75,7 +72,7 @@ import landingImage from "@assets/images/gvz-42-RyoPLIFEI7c-unsplash.jpg"; // <-
 				<!-- Background Image-->
 				<Picture
 					src={landingImage}
-					alt=""
+					alt="sheet music on piano keyboard"
 					layout="constrained"
 					widths={[400, 512, 800, 1024]}
 					format="jpg"
@@ -152,6 +149,7 @@ import landingImage from "@assets/images/gvz-42-RyoPLIFEI7c-unsplash.jpg"; // <-
 
 					input,
 					textarea {
+						background-color: var(--background);
 						font-size: (16/16rem);
 						width: 100%;
 						height: (64/16rem);
@@ -161,9 +159,6 @@ import landingImage from "@assets/images/gvz-42-RyoPLIFEI7c-unsplash.jpg"; // <-
 						padding-left: (20/16rem);
 						border: 1px dotted var(--primary);
 						// border-radius: (8/16rem);
-						@media (prefers-reduced-motion: no-preference) {
-							transition: all 0.3s;
-						}
 						border-top: 0;
 						border-right: 0;
 						border-left: 0;
@@ -269,17 +264,7 @@ import landingImage from "@assets/images/gvz-42-RyoPLIFEI7c-unsplash.jpg"; // <-
 					z-index: -1;
 					align-items: flex-start;
 
-					border: (4/16rem) solid;
-					border-image-slice: 1;
-					border-width: (2/16rem);
-					border-image-source: linear-gradient(
-						to right,
-						var(--secondary),
-						var(--secondaryLight)
-					);
-					@media (prefers-reduced-motion: no-preference) {
-						transition: border 0.3s;
-					}
+					
 
 					img {
 						width: 100%;
@@ -385,19 +370,6 @@ import landingImage from "@assets/images/gvz-42-RyoPLIFEI7c-unsplash.jpg"; // <-
 
 					.cs-topper {
 						color: var(--primaryLight);
-					}
-
-					.image-card {
-						box-shadow: var(--boxShadowDark);
-					}
-
-					.cs-bg-picture {
-						
-						border-image-source: linear-gradient(
-							to right,
-							var(--primary),
-							var(--primaryLight)
-						);
 					}
 
 					#cs-form {

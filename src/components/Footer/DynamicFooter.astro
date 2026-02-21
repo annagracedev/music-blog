@@ -14,10 +14,9 @@ const currentYear = getCurrentYear();
 	<div class="cs-container">
 		<div class="cs-top">
 			<div class="cs-sitenav">
-				<a href="/" class="cs-logo" aria-label="Return to home page"
-					>Anna Grace
-					<!--<Icon name="logo-black" /> -->
-				</a>
+					<a href="/" class="cs-logo" aria-label="Return to home page">
+						<span id="logo-text">Anna Grace</span>
+					</a>
 			</div>
 			<div class="cs-sitenav">
 				<ul class="cs-ul">
@@ -31,7 +30,7 @@ const currentYear = getCurrentYear();
 							>
 								{entry.children?.length > 0 ? (
 									// If entry has children in navData.json, create a button and a dropdown icon
-									// EXCEPT for this site I am linking to the folder as well
+									// can link to folder as well
 									<a href={entry.url} class:list={[
 											"cs-li-nav",
 											{ "cs-active": Astro.url.pathname === (entry.url) },
@@ -160,42 +159,17 @@ const currentYear = getCurrentYear();
 				</li>
 			</ul>-->
 			<div class="cs-copyright">
-				<span
-					><a href="https://annagrace.dev" class="cs-copyright-link"
-						>Designed by Anna Grace</a
-					></span
-				>
-				<span>© {currentYear}. All rights reserved.</span>
+				<span>© <a href="https://annagrace.dev" class="cs-copyright-link"
+						>Anna Grace Cooper</a
+					> {currentYear}. All rights reserved.</span>
 			</div>
 		</div>
 	</div>
-	<!--Background-->
 	<picture class="cs-background">
-		<!--Mobile Image-->
-		<!--<source
-			media="(max-width: 600px)"
-			srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/kids2.jpg"
-		/>-->
-		<!--Tablet and above Image-->
-		<!--<source
-			media="(min-width: 601px)"
-			srcset="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/kids2.jpg"
-		/>-->
-		<!--<img
-			loading="lazy"
-			decoding="async"
-			src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images/People/kids2.jpg"
-			alt="kids"
-			width="1280"
-			height="568"
-		/>-->
 	</picture>
 </footer>
 
 <style lang="less">
-	/*-- -------------------------- -->
-<---          Footer            -->
-<--- -------------------------- -*/
 
 	/* Mobile - 360px */
 	@media only screen and (min-width: 0rem) {
@@ -204,6 +178,8 @@ const currentYear = getCurrentYear();
 			position: relative;
 			z-index: 1;
 			font-style: normal;
+			font-family: "Overpass", sans-serif;
+			font-size: clamp(0.875rem,1.5vw,1rem);
 
 			.cs-container {
 				width: 100%;
@@ -222,7 +198,7 @@ const currentYear = getCurrentYear();
 				// border-bottom: 1px solid #484848;
 				display: flex;
 				flex-direction: column;
-				align-items: center;
+				align-items: flex-start;
 				justify-content: center;
 				gap: (32/16rem);
 			}
@@ -236,7 +212,7 @@ const currentYear = getCurrentYear();
 				padding: 0;
 				display: flex;
 				flex-wrap: wrap;
-				align-items: top;
+				align-items: flex-start;
 				justify-content: space-between;
 				row-gap: (8/16rem);
 				/* 28px - 40px */
@@ -259,11 +235,12 @@ const currentYear = getCurrentYear();
 				font-size: clamp(0.875rem, 1.5vw, 1rem);
 				color: var(--gray);
 				@media screen (prefers-reduced-motion: no-preference) {
-					transition: color 0.3s;
+					transition: color 0.3s ease-in-out;
 				}
-				&:hover {
+				cursor: auto;
+				/*&:hover {
 					color: var(--secondary);
-				}
+				} uncomment if menu folders are pages */
 			}
 
 			.cs-link {
@@ -275,7 +252,7 @@ const currentYear = getCurrentYear();
 				color: var(--gray);
 				display: block;
 				@media screen (prefers-reduced-motion: no-preference) {
-					transition: color 0.3s;
+					transition: color 0.3s ease-in-out;
 				}
 
 				&:hover {
@@ -284,28 +261,30 @@ const currentYear = getCurrentYear();
 			}
 
 			.cs-active {
-				text-decoration: underline;
+				// text-decoration: underline;
 			}
 
 			.cs-logo {
-				width: auto;
-				height: auto;
-				display: block;
-			}
-
-			.cs-logo-img {
-				width: 100%;
-				height: auto;
-				display: block;
-			}
-
-			.cs-logo {
-				filter: grayscale(1) brightness(1000%); /* makes everything turn white */
+				display: flex;
+				gap: 0.5rem; 
 				text-decoration: none;
-				font-family: "Overpass", sans-serif;
-				/* 16px - 24px */
-				font-size: clamp(0.875rem, 1.5vw, 1rem);
-				font-style: normal;
+				color: var(--gray);
+				&:hover {
+						color: var(--secondary);
+					}
+				#logo-img {
+					position: relative;
+					top: 0rem;
+					width: 1rem;
+					height: auto;
+					display: block;
+				}
+				#logo-text {
+					font-family: "Overpass", sans-serif;
+					/* 16px - 24px */
+					font-size: clamp(0.875rem, 1.5vw, 1rem);
+					font-style: normal;
+				}
 			}
 
 			.cs-bottom {
@@ -337,7 +316,7 @@ const currentYear = getCurrentYear();
 				display: flex;
 				justify-content: center;
 				align-items: center;
-				transition: background-color 0.3s;
+				transition: background-color 0.3s ease-in-out;
 				&:hover {
 					background-color: var(--secondary);
 
@@ -356,7 +335,7 @@ const currentYear = getCurrentYear();
 			}
 
 			.cs-copyright {
-				font-size: (16/16rem);
+				//font-size: (16/16rem);
 				line-height: 1.5em;
 				margin: 0;
 				color: var(--gray);
@@ -365,10 +344,9 @@ const currentYear = getCurrentYear();
 			}
 
 			.cs-copyright-link {
-				font-size: inherit;
+				//font-size: inherit;
 				text-decoration: none;
-				color: inherit;
-				transition: color 0.3s;
+				color: var(--gray);
 
 				&:hover {
 					color: var(--secondary);

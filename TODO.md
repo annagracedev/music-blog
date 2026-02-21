@@ -1,10 +1,20 @@
 
-Light type on a dark background must be a little thinner to be as legible as the other way around.
-
-I actually sort of like the body text being set in italic?
-
 Maybe put my blog site in Anonymous Pro.
 
-Literally all the stuff with music playlists
+# To do
 
-Why is the nav bar a different color in dark mode on mobile
+Draw cover
+
+# Bug fixes
+
+move playhead in music playlists
+
+Make sure favicons are generated correctly
+
+# To launch
+
+download fonts
+
+lots of url stuff
+
+lots of 404s

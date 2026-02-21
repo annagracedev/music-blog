@@ -92,13 +92,12 @@ h6 {
 		--headerColor: hsl(266 0 14%);
 		--bodyTextColor: #000;
 		--bodyTextColorWhite: #fff;
-		--background: hsl(266 0 100%);
+		--background: hsl(266 0 98%);
 		--gray: hsl(266 0 73%);
 		--darkGray: hsl(266 0 61%);
-		--dropShadow: drop-shadow(0px 0px (2/16rem) hsla(0, 0, 0, 0.3));
-		--dropShadowWhite: drop-shadow(0px 0px (2/16rem) hsla(0, 0, 100%, 0.5)) drop-shadow(0px 0px (4/16rem) hsla(0, 0, 100%, 0.7));
-		--boxShadow: 0.125rem 0.125rem 0.25rem hsla(0, 0, 0, 0.1);
-		--boxShadowDark: 0.125rem 0.125rem 0.25rem hsla(0, 0, 0, 0.3);
+		--dropShadow: drop-shadow(0px 0px (1/16rem) hsla(0, 0, 0, 0.3));
+		--dropShadowWhite: drop-shadow(0px 0px (1/16rem) hsla(0, 0, 100%, 0.5)) drop-shadow(0px 0px (2/16rem) hsla(0, 0, 100%, 0.7));
+		--boxShadow: 0.25rem 0.25rem 0.5rem hsla(0, 0, 0, 0.2);
 
 		/* 13px - 16px */
 		--topperFontSize: clamp(0.8125rem, 1.6vw, 1rem);
@@ -136,6 +135,7 @@ html {
 	//font-family: "Roboto", Arial, sans-serif;
 	font-size: 100%;
 	color: var(--bodyTextColor);
+
 	font-family: "Lora", serif;
 	font-optical-sizing: auto;
 	font-weight: 400;
@@ -143,10 +143,7 @@ html {
 }
 
 body {
-	@media (prefers-reduced-motion: no-preference) {
-		transition: background-color 0.3s;
-	}
-
+	background-color: var(--background);
 	min-height: 100vh;
 	min-height: 100dvh;
 	display: flex;
@@ -228,14 +225,7 @@ button {
 		width: auto;
 		height: (50/16rem);
 		padding: 0 (30/16rem);
-
-
-
-		// border
-		//border: (4/16rem) solid;
-		//border-image-slice: 1;
-		//border-width: (2/16rem);
-		//border-image-source: linear-gradient(to right, var(--primary), var(--primaryLight));
+		border: none;
 
 		// Transition Properties
 		color: var(--bodyTextColorWhite);
@@ -244,6 +234,10 @@ button {
 		position: relative;
 		//overflow: hidden;
 		z-index: 1;
+
+		@media (prefers-reduced-motion: no-preference) {
+			transition: opacity .3s;
+		}
 
 
 		&:after {
@@ -258,13 +252,17 @@ button {
 			z-index: -1;
 
 			@media (prefers-reduced-motion: no-preference) {
-				transition: width .3s ease-in-out;
+				transition: width .3s ease-in;
 			}
 		}
 
 		&:hover {
 			&:after {
 				width: 100%;
+
+				@media (prefers-reduced-motion: no-preference) {
+					transition: width .3s ease;
+				}
 			}
 		}
 

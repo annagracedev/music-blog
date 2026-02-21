@@ -4,116 +4,56 @@ import { getImage } from "astro:assets";
 
 // Components
 import BaseLayout from "@layouts/BaseLayout.astro";
+import Hero from "@components/Hero/Hero.astro";
 import CTABanner from "@components/CTA/CTABanner.astro";
-import SideBySide from "@components/SideBySide/SideBySide.astro";
 
 // Images
-import placeholderImg from "@assets/images/blog/roman-kraft-VfP_-Rmnhk4-unsplash.jpg";
-import image1 from "@assets/images/blog/roman-kraft-VfP_-Rmnhk4-unsplash.jpg";
-import image2 from "@assets/images/gvz-42-RyoPLIFEI7c-unsplash.jpg";
+import heroImg from "@assets/images/sandra-mosconi-t1Eap41N4ms-unsplash.webp";
 
 
-const optimizedPlaceholder = await getImage({
-	src: placeholderImg,
+const optimizedImage = await getImage({
+	src: heroImg,
 	format: "webp",
 });
 ---
 
 <BaseLayout
-	title="Welcome"
-	description="Your new Astro site"
-	heroImage={optimizedPlaceholder}
+	title="Home"
+	description="Modern classical music compositions and lessons."
+	heroImage={optimizedImage}
 >
 	<main id="main">
+		<Hero 
+			title="I’m Anna," 
+			text="a classical musician and composer." 
+			image={optimizedImage}
+		/>
 		<section id="welcome">
 			<div class="cs-container">
 				<div class="cs-content">
-					<h1>I’m Anna,</h1>
-					<p>
-						a classical musician and composer.
-					</p>
 				</div>
 			</div>
 		</section>
-	<SideBySide 
-		url1="/music/the-colors-of-light-op-0/"
-		button1="Listen Now"
-		image1={image1}
-		title1="The Colors of Light, Op. 0"
-		desc1="Suite for Bb clarinet, harp, piano, cello, and double bass."
-		url2="/contact/"
-		button2="Contact"
-		image2={image2}
-		title2="Contact"
-		desc2="Music composition, theory, and arrangement lessons."
-	/>
+		<CTABanner 
+			url="/music/the-colors-of-light-op-0/"
+			button="Listen Now"
+			image="/src/assets/images/blog/roman-kraft-VfP_-Rmnhk4-unsplash.webp"
+			title="The Colors of Light, Op. 0"
+		/>
 	</main>
 </BaseLayout>
 
 <style lang="less">
-	#welcome {
-		padding: (100/16rem) 1rem 1rem;
+#welcome {
 
-		.cs-container {
-			max-width: 1280px;
-			margin: 0 auto;
-		}
-
-		.cs-content {
-			max-width: 800px;
-			margin: 0 auto;
-			text-align: center;
-
-			h1 {
-				margin-bottom: 24px;
-				font-size: clamp(2rem, 5vw, 3rem);
-			}
-
-			p {
-				margin-bottom: 16px;
-				font-size: 1.125rem;
-				line-height: 1.6;
-			}
-
-			code {
-				padding: 2px 8px;
-				background: #f4f4f4;
-				border-radius: 4px;
-				font-family: monospace;
-			}
-
-			a {
-				color: var(--link);
-				text-decoration: underline;
-
-				&:hover {
-					opacity: 0.8;
-				}
-			}
-		}
+	.cs-container {
+		max-width: 1280px;
+		margin: 0 auto;
 	}
 
-	/* Dark mode */
-	@media only screen and (prefers-color-scheme: dark) {
-		#welcome {
-			.cs-content {
-				code {
-					background: #2a2a2a;
-				}
-			}
-		}
+	.cs-content {
+		max-width: 800px;
+		margin: 0 auto;
 	}
-
-	body.dark-mode {
-		#welcome {
-			.cs-content {
-				code {
-					background: var(--dark);
-				}
-				a {
-					color: var(--linkLight);
-				}
-			}
-		}
-	}
+}
 </style>

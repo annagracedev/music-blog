@@ -1,32 +1,18 @@
 ---
-const { url, title, button } = Astro.props;
+const { url, title, button, image } = Astro.props;
 ---
 
-<!-- ============================================ --><!--                     CTA                      --><!-- ============================================ -->
 <section id="cta-697">
 	<div class="cs-container">
 		<div class="cs-content">
-			<h2 class="cs-title">{title}</h2>
+			<img src={image} alt="cover" class="cs-image">
+			<h1 class="cs-title">{title}</h1>
 			<a href={url} class="cs-button-solid">{button}</a>
 		</div>
 	</div>
-	<!--SVG Waves Background-->
-	<img
-		class="cs-background"
-		src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Images%2FGraphics%2Fwaves-3.svg"
-		alt="wave graphic"
-		width="1920"
-		height="318"
-		loading="lazy"
-		decoding="async"
-		aria-hidden="true"
-	/>
 </section>
 
 <style lang="less">
-	/*-- -------------------------- -->
-<---            CTA             -->
-<--- -------------------------- -*/
 
 	/* Mobile - 360px */
 	@media only screen and (min-width: 0rem) {
@@ -34,11 +20,10 @@ const { url, title, button } = Astro.props;
 			padding: var(--sectionPadding);
 			position: relative;
 			z-index: 1;
-			background-color: var(--dark);
 
 			.cs-container {
 				width: 100%;
-				max-width: (1280/16rem);
+				max-width: 1280px;
 				margin: auto;
 				display: flex;
 				flex-direction: column;
@@ -59,23 +44,15 @@ const { url, title, button } = Astro.props;
 				gap: clamp(3rem, 6vw, 4rem);
 			}
 
-			.cs-title {
-				color: var(--bodyTextColorWhite);
-			}
-
-			.cs-button-solid {
-				color: var(--bodyTextColor);
-				background-color: var(--secondary);
-				border-image-source: linear-gradient(
-					to right,
-					var(--secondary),
-					var(--secondaryLight)
-				);
-
-				&:before {
-					background: var(--secondaryLight);
+			.cs-image {
+					max-width: 20%;
+					height: auto;
+					display: block;
+					top: 0;
+					left: 0;
+					z-index: -1;
+					align-items: flex-start;
 				}
-			} /* style this button dark mode*/
 
 			.cs-background {
 				width: 100%;

@@ -41,7 +41,7 @@ Object.assign(MediaElementPlayer.prototype, {
 	buildplaylist: function buildplaylist(player, controls, layers, media) {
 
 		var defaultPlaylistTitle = mejs.i18n.t('mejs.playlist'),
-		    playlistTitle = mejs.Utils.isString(player.options.playlistTitle) ? player.options.playlistTitle : defaultPlaylistTitle;
+				playlistTitle = mejs.Utils.isString(player.options.playlistTitle) ? player.options.playlistTitle : defaultPlaylistTitle;
 
 		if (player.createPlayList_()) {
 			return;
@@ -51,9 +51,9 @@ Object.assign(MediaElementPlayer.prototype, {
 		player.originalControlsIndex = controls.style.zIndex;
 		controls.style.zIndex = 5;
 
-		player.endedCallback = function () {
+		player.endedCallback = function () {	
 			if (player.currentPlaylistItem < player.listItems.length) {
-				player.setSrc(player.playlist[++player.currentPlaylistItem]);
+				player.setSrc(player.playlist[++player.currentPlaylistItem].src);
 				player.load();
 				setTimeout(function () {
 					player.play();
@@ -65,7 +65,7 @@ Object.assign(MediaElementPlayer.prototype, {
 
 		if (!player.isVideo) {
 			var currentItem = document.createElement('div'),
-			    audioCallback = function audioCallback() {
+					audioCallback = function audioCallback() {
 				currentItem.innerHTML = '';
 				if (typeof player.playlist[player.currentPlaylistItem]['data-playlist-thumbnail'] !== 'undefined') {
 					currentItem.innerHTML += '<img tabindex="-1" src="' + player.playlist[player.currentPlaylistItem]['data-playlist-thumbnail'] + '">';
@@ -105,23 +105,23 @@ Object.assign(MediaElementPlayer.prototype, {
 			} else {
 				var _items = player.playlistLayer.querySelectorAll('li');
 
-				if (_items.length <= 10) {
+				/* if (_items.length <= 10) {
 					var height = 0;
 					for (var _i = 0, _total = _items.length; _i < _total; _i++) {
 						height += _items[_i].offsetHeight;
 					}
 					player.container.style.height = height + 'px';
-				}
+				}*/
 			}
 
 			var items = player.playlistLayer.querySelectorAll('.' + player.options.classPrefix + 'playlist-selector-list-item'),
-			    inputs = player.playlistLayer.querySelectorAll('input[type=radio]');
+					inputs = player.playlistLayer.querySelectorAll('input[type=radio]');
 
 			for (var _i2 = 0, _total2 = inputs.length; _i2 < _total2; _i2++) {
 				inputs[_i2].disabled = false;
 				inputs[_i2].addEventListener('click', function () {
 					var radios = player.playlistLayer.querySelectorAll('input[type="radio"]'),
-					    selected = player.playlistLayer.querySelectorAll('.' + player.options.classPrefix + 'playlist-selected');
+							selected = player.playlistLayer.querySelectorAll('.' + player.options.classPrefix + 'playlist-selected');
 
 					for (var j = 0, total2 = radios.length; j < total2; j++) {
 						radios[j].checked = false;
@@ -150,7 +150,7 @@ Object.assign(MediaElementPlayer.prototype, {
 					var radio = mejs.Utils.siblings(this.querySelector('.' + player.options.classPrefix + 'playlist-selector-label'), function (el) {
 						return el.tagName === 'INPUT';
 					})[0],
-					    event = mejs.Utils.createEvent('click', radio);
+							event = mejs.Utils.createEvent('click', radio);
 					radio.dispatchEvent(event);
 				});
 			}
@@ -300,6 +300,7 @@ Object.assign(MediaElementPlayer.prototype, {
 	},
 	createPlayList_: function createPlayList_() {
 		var t = this;
+		
 
 		t.playlist = t.options.playlist.length ? t.options.playlist : t.mediaFiles && t.mediaFiles.length ? t.mediaFiles : [];
 
