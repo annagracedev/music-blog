@@ -2,7 +2,7 @@ import type { APIRoute } from 'astro'
 import { getImage } from 'astro:assets'
 import favicon from 'public/assets/favicons/favicon.png'
 
-const faviconPngSizes = [180, 192, 512]
+const faviconPngSizes = [16, 32, 48, 180, 192, 512]
 
 async function getIcons() {
   return Promise.all(

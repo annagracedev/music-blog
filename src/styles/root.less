@@ -112,20 +112,37 @@ h6 {
 
 // MARK: Font faces
 
-// I will locally host these once I have settled
-
+@font-face {
+	font-style: normal;
+	font-family: "Lora";
+	font-weight: 400 700;
+	font-display: swap;
+	src: url("/assets/fonts/Lora-VariableFont_wght.ttf") format('truetype-variations'),
+}
 
 @font-face {
 	font-style: italic;
 	font-family: "Lora";
-	font-weight: 400;
+	font-weight: 400 700;
 	font-display: swap;
-	src: local(""), url("/assets/fonts/roboto-v29-latin-regular.woff2") format("woff2"),
-		/* Chrome 26+, Opera 23+, Firefox 39+ */
-		url("/assets/fonts/roboto-v29-latin-regular.woff") format("woff");
-	/* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+	src: url("/assets/fonts/Lora-Italic-VariableFont_wght.ttf") format('truetype-variations'),
 }
 
+@font-face {
+	font-style: normal;
+	font-family: "Overpass";
+	font-weight: 100 900;
+	font-display: swap;
+	src: url("/assets/fonts/Overpass-VariableFont_wght.ttf") format('truetype-variations'),
+}
+
+@font-face {
+	font-style: italic;
+	font-family: "Overpass";
+	font-weight: 100 900;
+	font-display: swap;
+	src: url("/assets/fonts/Overpass-Italic-VariableFont_wght.ttf") format('truetype-variations'),
+}
 
 
 // MARK: Base element styles
@@ -193,7 +210,6 @@ button {
 
 .cs-title {
 	font-size: var(--headerFontSize);
-	font-weight: 900;
 	line-height: 1.2em;
 	margin: 0 auto (16/16rem);
 	color: var(--headerColor);
