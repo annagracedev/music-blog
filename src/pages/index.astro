@@ -10,7 +10,6 @@ import CTABanner from "@components/CTA/CTABanner.astro";
 // Images
 import heroImg from "@assets/images/sandra-mosconi-t1Eap41N4ms-unsplash.webp";
 
-
 const optimizedImage = await getImage({
 	src: heroImg,
 	format: "webp",
@@ -19,8 +18,7 @@ const optimizedImage = await getImage({
 
 <BaseLayout
 	title="Home"
-	description="Modern classical music compositions and lessons."
-	heroImage={optimizedImage}
+	description="Modern classical music compositions."
 >
 	<main id="main">
 		<Hero 

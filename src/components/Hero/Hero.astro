@@ -15,7 +15,9 @@ interface Props {
 	image: GetImageResult; // pre-optimized image from getImage()
 }
 
-const { title, text, image } = Astro.props as Props;
+const { title, text } = Astro.props as Props;
+
+import heroImg from "@assets/images/sandra-mosconi-t1Eap41N4ms-unsplash.webp";
 ---
 
 <section id="hero">
@@ -27,9 +29,15 @@ const { title, text, image } = Astro.props as Props;
 			<a href="/contact/" class="cs-button-transparent">Contact</a>
 		</div>
 	</div>
-
-	<!-- Using the preloaded image from the props -->
-	<Picture src={image.src} alt="new home" width={image.attributes.width} height={image.attributes.height} formats={["avif", "webp"]} priority pictureAttributes={{ class: "cs-picture" }} />
+		<Picture
+					src={heroImg}
+					alt="sheet music on piano keyboard"
+					layout="constrained"
+					widths={[400, 512, 800, 1024]}
+					formats={["avif", "webp"]}
+					priority
+					pictureAttributes={{ class: "cs-picture" }}
+		/>
 </section>
 
 <style lang="less">

@@ -1,15 +1,13 @@
 ---
 // Utils
-import { getImage } from "astro:assets";
+import { getImage, Picture } from "astro:assets";
 import "@styles/playlist.css";
 
 // Components
 import BaseLayout from "@layouts/BaseLayout.astro";
 
 // Images
-import coverImg from "@assets/images/blog/roman-kraft-VfP_-Rmnhk4-unsplash.webp";
-
-const cover = await getImage({ src: coverImg, format: "webp" });
+import cover from "@assets/images/blog/roman-kraft-VfP_-Rmnhk4-unsplash.webp";
 
 ---
 
@@ -39,8 +37,23 @@ const cover = await getImage({ src: coverImg, format: "webp" });
 				</div>
 				<div class="audio-player-border">
 					<div class="audio-player-wrapper">
+						<Picture
+								src={cover}
+								alt="Description"
+								width={400}
+								formats={['avif', 'webp']}
+								priority
+								pictureAttributes={{ class: "cs-picture" }}
+							/>
 						<div class="image-wrapper">
-							<img class="cover" src=`${cover}` alt="">
+							<Picture
+								src={cover}
+								alt="Description"
+								width={400}
+								formats={['avif', 'webp']}
+								priority
+								pictureAttributes={{ class: "cs-picture" }}
+							/>
 						</div>
 						<audio id="audio-player" controls>
 							
@@ -61,16 +74,18 @@ const cover = await getImage({ src: coverImg, format: "webp" });
 	document.addEventListener('astro:page-load', () => {
 			new MediaElementPlayer('audio-player', {
 				iconSprite: '/mejs-controls.svg',
-				features: ['playlist', 'prevtrack', 'playpause', 'nexttrack', 'current', 'progress', 'duration', 'volume', ],
-				playlist: [ {src:"/assets/mp3s/The Colors of Light/01 - Nightshade.mp3", title:"Nightshade (Op. 0, No. 1)", type:"audio/mp3"}, 
+				playlist: [ 
+					{src:"/assets/mp3s/The Colors of Light/01 - Nightshade.mp3", title:"Nightshade (Op. 0, No. 1)", type:"audio/mp3"}, 
 					{src:"/assets/mp3s/The Colors of Light/02 - Retrograde Heart.mp3", title:"Retrograde Heart (Op. 0, No. 2)", type:"audio/mp3"}, 
 					{src:"/assets/mp3s/The Colors of Light/03 - Crow's Justice.mp3", title:"Crow’s Justice (Op. 0, No. 3)", type:"audio/mp3"}, 
 					{src:"/assets/mp3s/The Colors of Light/04 - Aria.mp3", title:"Aria (Op. 0, No. 4)", type:"audio/mp3"}, 
 					{src:"/assets/mp3s/The Colors of Light/05 - Fantasy.mp3", title:"Fantasy (Op. 0, No. 5)", type:"audio/mp3"}, 
 					{src:"/assets/mp3s/The Colors of Light/06 - Galanthus.mp3", title:"Galanthus (Op. 0, No. 6)", type:"audio/mp3"}, 
 					{src:"/assets/mp3s/The Colors of Light/07 - DAYBREAK.mp3", title:"DAYBREAK (Op. 0, No. 7)", type:"audio/mp3"}, 
-					{src:"/assets/mp3s/The Colors of Light/08 - All the Lights.mp3", title:"All the Lights (Op. 0, No. 8)", type:"audio/mp3"} ],
-					currentMessage: 'Now Playing: '
+					{src:"/assets/mp3s/The Colors of Light/08 - All the Lights.mp3", title:"All the Lights (Op. 0, No. 8)", type:"audio/mp3"} 
+				],
+				currentMessage: 'Now playing: ',
+				features: ['playlist', 'prevtrack', 'playpause', 'nexttrack', 'current', 'progress', 'duration', 'volume', ],
 			});
 			
 	});
@@ -133,8 +148,8 @@ const cover = await getImage({ src: coverImg, format: "webp" });
 		font-family: 'Overpass', sans-serif;
 		background-image: var(--cover);
 		background-color: #000;
-		-webkit-backdrop-filter: blur(10px);
-		backdrop-filter: blur(10px);
+		-webkit-backdrop-filter: blur(100px);
+		backdrop-filter: blur(100px);
 	}
 	.audio-player-border {
 		box-shadow: var(--boxShadow); 
