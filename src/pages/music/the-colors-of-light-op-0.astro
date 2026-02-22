@@ -1,7 +1,6 @@
 ---
 // Utils
 import { getImage, Picture } from "astro:assets";
-import "@styles/playlist.css";
 
 // Components
 import BaseLayout from "@layouts/BaseLayout.astro";
@@ -10,10 +9,10 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import cover from "@assets/images/blog/roman-kraft-VfP_-Rmnhk4-unsplash.webp";
 
 ---
-
 <script is:inline src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/7.0.7/mediaelementplayer.min.css" rel="stylesheet">
 <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/7.0.7/mediaelement-and-player.min.js"></script>
+<link href="/playlist.css" rel="stylesheet">
 <script is:inline src="/playlist.js"></script>
 
 <BaseLayout
@@ -37,15 +36,6 @@ import cover from "@assets/images/blog/roman-kraft-VfP_-Rmnhk4-unsplash.webp";
 				</div>
 				<div class="audio-player-border">
 					<div class="audio-player-wrapper">
-						<Picture
-								src={cover}
-								alt="Description"
-								width={400}
-								formats={['avif', 'webp']}
-								priority
-								pictureAttributes={{ class: "cs-picture" }}
-							/>
-						<div class="image-wrapper">
 							<Picture
 								src={cover}
 								alt="Description"
@@ -54,9 +44,15 @@ import cover from "@assets/images/blog/roman-kraft-VfP_-Rmnhk4-unsplash.webp";
 								priority
 								pictureAttributes={{ class: "cs-picture" }}
 							/>
-						</div>
 						<audio id="audio-player" controls>
-							
+							<source src="/assets/mp3s/The Colors of Light/01 - Nightshade.mp3" title="Nightshade (Op. 0, No. 1)" type="audio/mp3" />
+							<source src="/assets/mp3s/The Colors of Light/02 - Retrograde Heart.mp3" title="Retrograde Heart (Op. 0, No. 2)" type="audio/mp3" />
+							<source src="/assets/mp3s/The Colors of Light/03 - Crow's Justice.mp3" title="Crow’s Justice (Op. 0, No. 3)" type="audio/mp3" />
+							<source src="/assets/mp3s/The Colors of Light/04 - Aria.mp3" title="Aria (Op. 0, No. 4)" type="audio/mp3" />
+							<source src="/assets/mp3s/The Colors of Light/05 - Fantasy.mp3" title="Fantasy (Op. 0, No. 5)" type="audio/mp3" />
+							<source src="/assets/mp3s/The Colors of Light/06 - Galanthus.mp3" title="Galanthus (Op. 0, No. 6)" type="audio/mp3" />
+							<source src="/assets/mp3s/The Colors of Light/07 - DAYBREAK.mp3" title="DAYBREAK (Op. 0, No. 7)" type="audio/mp3" />
+							<source src="/assets/mp3s/The Colors of Light/08 - All the Lights.mp3" title="All the Lights (Op. 0, No. 8)" type="audio/mp3" />
 						</audio>
 						</div>
 					</div>
@@ -67,31 +63,16 @@ import cover from "@assets/images/blog/roman-kraft-VfP_-Rmnhk4-unsplash.webp";
 </BaseLayout>
 
 <script is:inline>
-
-</script>
-
-<script is:inline>
 	document.addEventListener('astro:page-load', () => {
 			new MediaElementPlayer('audio-player', {
 				iconSprite: '/mejs-controls.svg',
-				playlist: [ 
-					{src:"/assets/mp3s/The Colors of Light/01 - Nightshade.mp3", title:"Nightshade (Op. 0, No. 1)", type:"audio/mp3"}, 
-					{src:"/assets/mp3s/The Colors of Light/02 - Retrograde Heart.mp3", title:"Retrograde Heart (Op. 0, No. 2)", type:"audio/mp3"}, 
-					{src:"/assets/mp3s/The Colors of Light/03 - Crow's Justice.mp3", title:"Crow’s Justice (Op. 0, No. 3)", type:"audio/mp3"}, 
-					{src:"/assets/mp3s/The Colors of Light/04 - Aria.mp3", title:"Aria (Op. 0, No. 4)", type:"audio/mp3"}, 
-					{src:"/assets/mp3s/The Colors of Light/05 - Fantasy.mp3", title:"Fantasy (Op. 0, No. 5)", type:"audio/mp3"}, 
-					{src:"/assets/mp3s/The Colors of Light/06 - Galanthus.mp3", title:"Galanthus (Op. 0, No. 6)", type:"audio/mp3"}, 
-					{src:"/assets/mp3s/The Colors of Light/07 - DAYBREAK.mp3", title:"DAYBREAK (Op. 0, No. 7)", type:"audio/mp3"}, 
-					{src:"/assets/mp3s/The Colors of Light/08 - All the Lights.mp3", title:"All the Lights (Op. 0, No. 8)", type:"audio/mp3"} 
-				],
-				currentMessage: 'Now playing: ',
-				features: ['playlist', 'prevtrack', 'playpause', 'nexttrack', 'current', 'progress', 'duration', 'volume', ],
+				features: ['playlist', 'prevtrack', 'playpause', 'nexttrack', 'current', 'progress', 'duration', 'volume', ]
 			});
 			
 	});
 </script>
 
-<style lang="less" define:vars={{cover}}>
+<style lang="less">
 	#content {
 		padding: (100/16rem) 1rem 1rem;
 
@@ -146,14 +127,23 @@ import cover from "@assets/images/blog/roman-kraft-VfP_-Rmnhk4-unsplash.webp";
 		flex-direction: column;
 		align-items: center;
 		font-family: 'Overpass', sans-serif;
-		background-image: var(--cover);
 		background-color: #000;
 		-webkit-backdrop-filter: blur(100px);
 		backdrop-filter: blur(100px);
 	}
+	
 	.audio-player-border {
 		box-shadow: var(--boxShadow); 
 		margin-bottom: clamp(1.5rem, 6.3vw, 2rem); //subtract p margin
+	}
+
+	@media only screen and (max-width: 63.9375rem) {
+		#content {
+			.cs-container {
+				flex-direction: column;
+				align-items: center;
+			}
+		}
 	}
 
 @media only screen and (min-width: 64rem) {

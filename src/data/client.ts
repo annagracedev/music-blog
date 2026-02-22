@@ -8,8 +8,8 @@ export const SITE = {
 	locale: "en",
 };
 
-// ===== BUSINESS INFO =====
-export const BUSINESS = {
+// ===== OWNER INFO =====
+export const OWNER = {
 	name: SITE.title,
 	email: "hello@annagrace.dev",
 	logo: "/assets/favicons/favicon.svg",

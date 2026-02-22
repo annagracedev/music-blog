@@ -1,4 +1,4 @@
-import { SITE, BUSINESS } from "@data/client";
+import { SITE, OWNER } from "@data/client";
 
 export function getBlogPostingSchema(data, origin) {
 	return {
@@ -23,7 +23,7 @@ export function getBlogPostingSchema(data, origin) {
 			"name": SITE.title,
 			"logo": {
 				"@type": "ImageObject",
-				"url": origin + BUSINESS.logo,
+				"url": origin + OWNER.logo,
 			},
 		},
 	};

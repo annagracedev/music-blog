@@ -17,6 +17,7 @@
 		"@mdi/svg": "^7.4.47",
 		"@types/jquery": "^3.5.33",
 		"astro": "^5.16.16",
+		"astro-font": "^1.1.0",
 		"astro-icon": "^1.1.5",
 		"autoprefixer": "^10.4.24",
 		"jquery": "^4.0.0",

@@ -1,18 +1,18 @@
-import { SITE, BUSINESS } from "@data/client";
+import { SITE, OWNER } from "@data/client";
 
 export function getLocalBusinessSchema(origin) {
 	const sameAs = [];
-	if (BUSINESS.socials?.facebook) sameAs.push(BUSINESS.socials.facebook);
-	if (BUSINESS.socials?.instagram) sameAs.push(BUSINESS.socials.instagram);
+	if (OWNER.socials?.facebook) sameAs.push(OWNER.socials.facebook);
+	if (OWNER.socials?.instagram) sameAs.push(OWNER.socials.instagram);
 
 	return {
 		"@context": "https://schema.org",
 		"@type": ["LocalBusiness", "WebSite"],
-		"name": BUSINESS.name,
+		"name": OWNER.name,
 		"url": SITE.url,
-		"logo": origin + BUSINESS.logo,
-		"image": origin + BUSINESS.logo,
-		"email": BUSINESS.email,
+		"logo": origin + OWNER.logo,
+		"image": origin + OWNER.logo,
+		"email": OWNER.email,
 		"sameAs": sameAs,
 		"inLanguage": SITE.locale,
 	};
