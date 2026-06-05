@@ -1,3 +1,7 @@
+.mejs__container {
+	font-family: "Overpass", sans-serif;
+}
+
 .mejs__controls {
 	font-style: normal;
 }
