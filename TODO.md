@@ -1,9 +1,16 @@
 
-Maybe put my blog site in Anonymous Pro.
 
 # To do
 
 Draw cover
+
+Fix mobile menu toggle
+
+Clicking play on playlist controls does not actually play (maybe due to public script issues? ) Odd, it also happens in dev now
+
+Change music page layout
+
+Remove header/footer info when printing
 
 # Bug fixes
 

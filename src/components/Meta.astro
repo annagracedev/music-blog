@@ -2,7 +2,7 @@
 import { getImage } from "astro:assets";
 import type { GetImageResult } from "astro";
 import { OWNER, OG, SITE } from "@data/client";
-import { getLocalBusinessSchema } from "@js/localBusinessSchema.js";
+import { getSiteSchema } from "@js/siteSchema.js";
 
 // Props and Types
 type HeroImage = GetImageResult | ImageMetadata;
@@ -20,7 +20,7 @@ const {
 } = Astro.props;
 
 // Data
-const localBusinessSchema = getLocalBusinessSchema(Astro.url.origin);
+const siteSchema = getSiteSchema(Astro.url.origin);
 const canonical = Astro.url.href;
 
 // Detect home page for special title formatting
@@ -67,7 +67,7 @@ if (heroImage) {
 <script
 	is:inline
 	type="application/ld+json"
-	set:html={JSON.stringify(localBusinessSchema)}
+	set:html={JSON.stringify(siteSchema)}
 />
 
 <!-- Allow additional schemas from child layouts (e.g., BlogPosting for blog posts) -->

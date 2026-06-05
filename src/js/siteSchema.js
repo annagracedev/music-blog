@@ -1,6 +1,6 @@
 import { SITE, OWNER } from "@data/client";
 
-export function getLocalBusinessSchema(origin) {
+export function getSiteSchema(origin) {
 	const sameAs = [];
 	if (OWNER.socials?.facebook) sameAs.push(OWNER.socials.facebook);
 	if (OWNER.socials?.instagram) sameAs.push(OWNER.socials.instagram);
