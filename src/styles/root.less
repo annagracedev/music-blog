@@ -1,4 +1,4 @@
-// MARK: CSS Reset
+// CSS Reset
 
 /* Modern CSS Reset - Based on Josh Comeau's reset */
 /* 1. Use a more-intuitive box-sizing model */
@@ -78,7 +78,7 @@ h6 {
 	isolation: isolate;
 }
 
-// MARK: CSS Variables
+// CSS Variables
 
 @media only screen and (min-width: 0em) {
 	:root {
@@ -97,7 +97,7 @@ h6 {
 		--darkGray: hsl(266 0 61%);
 		--dropShadow: drop-shadow(0px 0px (1/16rem) hsla(0, 0, 0, 0.3));
 		--dropShadowWhite: drop-shadow(0px 0px (1/16rem) hsla(0, 0, 100%, 0.5)) drop-shadow(0px 0px (2/16rem) hsla(0, 0, 100%, 0.7));
-		--boxShadow: 0.25rem 0.25rem 0.5rem hsla(0, 0, 0, 0.2);
+		--boxShadow: none; // 0.25rem 0.25rem 0.5rem hsla(0, 0, 0, 0.2);
 
 		/* 13px - 16px */
 		--topperFontSize: clamp(0.8125rem, 1.6vw, 1rem);
@@ -110,7 +110,7 @@ h6 {
 	}
 }
 
-// MARK: Font faces
+// Font faces
 
 @font-face {
 	font-style: normal;
@@ -141,7 +141,7 @@ h6 {
 }
 
 
-// MARK: Base element styles
+// Base element styles
 
 body,
 html {
@@ -191,7 +191,7 @@ button {
 	}
 }
 
-// MARK: Typography
+// Typography
 
 // Text styles - can be replaced using CodeStitch's "Content Flair" Stitches
 .cs-topper {
@@ -220,7 +220,7 @@ button {
 	color: var(--bodyTextColor);
 }
 
-// MARK: Components
+// Components
 
 @media only screen and (min-width: 0em) {
 
@@ -312,7 +312,7 @@ button {
 	}
 }
 
-// MARK: Utility
+// Utility
 
 // prevents icons from shrinking in flex containers
 [data-icon] {
@@ -327,7 +327,7 @@ button {
 	display: block;
 }
 
-// MARK: Responsive
+// Responsive
 
 /* Desktop - 1024px */
 @media only screen and (min-width: 64rem) {

@@ -41,13 +41,13 @@
 
 	setToggleListener();
 
-	document.addEventListener("astro:after-swap", setToggleListener); // For View Transitions purposes - astro:after-swap ensures that the listener is re-attached after navigating to a new page.
+	document.addEventListener("astro:after-swap", setToggleListener); // For View Transitions purposes
 </script>
 
 <style lang="less">
-	// MARK: CSS
+	// CSS
 
-	// MARK: Mobile - 360px
+	// Mobile - 360px
 	@media only screen and (min-width: 0rem) {
 		body.dark-mode {
 			#dark-mode-toggle {
@@ -90,7 +90,7 @@
 		}
 	}
 
-	// MARK: Desktop - 1024px
+	// Desktop - 1024px
 	@media only screen and (min-width: 64rem) {
 		#dark-mode-toggle {
 			margin: 0;
@@ -105,7 +105,7 @@
 		}
 	}
 
-	// MARK: Animations
+	// Animations
 
 /*	@media only screen and (min-width: 64rem) and (prefers-reduced-motion: no-preference) {
 		#dark-mode-toggle {

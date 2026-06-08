@@ -8,6 +8,17 @@ Fix mobile menu toggle
 
 Clicking play on playlist controls does not actually play (maybe due to public script issues? ) Odd, it also happens in dev now
 
+When clicking on a song, it adds 
+
+mejs__playlist-selected
+
+as a class to the li entry
+
+and when clicking on another it removes this from the previously selected one and adds it to the one clicked on
+
+When songs advance from mejs__prev-button, mejs__next-button, or automatically advancing, it does not do this
+
+
 Change music page layout
 
 Remove header/footer info when printing
