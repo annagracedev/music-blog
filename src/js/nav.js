@@ -12,7 +12,7 @@ document.addEventListener("astro:page-load", () => {
 				body: "body",
 				navigation: "#cs-navigation",
 				hamburger: "#cs-navigation .cs-toggle",
-				menuWrapper: "#cs-ul-wrapper",
+				menuWrapper: "#menu-ul-wrapper",
 				dropdownToggle: ".cs-dropdown-toggle",
 				dropdown: ".cs-dropdown",
 				dropdownMenu: ".cs-drop-ul",
@@ -20,8 +20,8 @@ document.addEventListener("astro:page-load", () => {
 				darkModeToggle: "#dark-mode-toggle",
 			},
 			CLASSES: {
-				active: "cs-active",
-				menuOpen: "cs-open",
+				active: "menu-active",
+				menuOpen: "menu-open",
 			},
 		};
 

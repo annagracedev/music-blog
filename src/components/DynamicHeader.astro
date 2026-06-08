@@ -22,7 +22,7 @@ import navData from "@data/navData.json";
 		</a>
 		<!--Navigation List-->
 		<nav class="cs-nav" aria-label="main navigation">
-			<div class="cs-ul-wrapper" id="cs-ul-wrapper">
+			<div class="menu-ul-wrapper" id="menu-ul-wrapper">
 				<ul id="cs-expanded" class="cs-ul">
 					{
 						navData.map((entry) => (
@@ -40,7 +40,7 @@ import navData from "@data/navData.json";
 										aria-haspopup="menu"
 										class:list={[
 											"cs-li-nav cs-dropdown-toggle",
-											{ "cs-active": Astro.url.pathname.includes(entry.url) },
+											{ "menu-active": Astro.url.pathname.includes(entry.url) },
 										]}
 									>
 										<a
@@ -57,7 +57,7 @@ import navData from "@data/navData.json";
 										href={entry.url}
 										class:list={[
 											"cs-li-link",
-											{ "cs-active": Astro.url.pathname === entry.url },
+											{ "menu-active": Astro.url.pathname === entry.url },
 										]}
 										aria-current={isCurrentPage(Astro.url.pathname, entry.url)}
 									>
@@ -95,7 +95,7 @@ import navData from "@data/navData.json";
 							href="/contact/"
 							class:list={[
 								"cs-li-link",
-								{ "cs-active": Astro.url.pathname === "/contact/" },
+								{ "menu-active": Astro.url.pathname === "/contact/" },
 							]}
 							aria-current={isCurrentPage(Astro.url.pathname, "/contact/")}
 						>
@@ -108,19 +108,18 @@ import navData from "@data/navData.json";
 		<a href="/contact/" class="cs-button-solid cs-nav-button">Contact</a>
 		<DarkModeToggle />
 		<nav class="cs-nav" aria-label="main navigation">
-			<!--Mobile Nav Toggle-->
 			<button
 				class="cs-toggle"
 				id="cs-toggle"
 				aria-expanded="false"
-				aria-controls="cs-ul-wrapper"
+				aria-controls="menu-ul-wrapper"
 				aria-haspopup="menu"
 				aria-label="mobile menu toggle"
 			>
-				<span class="cs-box" aria-hidden="true">
-					<span class="cs-line cs-line1" aria-hidden="true"></span>
-					<span class="cs-line cs-line2" aria-hidden="true"></span>
-					<span class="cs-line cs-line3" aria-hidden="true"></span>
+				<span class="menu-box" aria-hidden="true">
+					<span class="menu-line menu-line1" aria-hidden="true"></span>
+					<span class="menu-line menu-line2" aria-hidden="true"></span>
+					<span class="menu-line menu-line3" aria-hidden="true"></span>
 				</span>
 			</button>
 		</nav>
@@ -132,7 +131,7 @@ import navData from "@data/navData.json";
 	//MARK: Mobile - 1023px
 	@media only screen and (max-width: 63.9375rem) {
 		body {
-			&.cs-open {
+			&.menu-open {
 				overflow: hidden;
 			}
 		}
@@ -142,10 +141,7 @@ import navData from "@data/navData.json";
 		}
 
 		#cs-navigation {
-			/* remove the font family so the Stitch inherits the fonts from your global stylesheet */
-			// font-family: "Roboto", "Arial", sans-serif;
 			width: 100%;
-			/* prevents padding from affecting height and width */
 			box-sizing: border-box;
 			padding: (12/16rem) (16/16rem);
 			background-color: #fff;
@@ -153,41 +149,18 @@ import navData from "@data/navData.json";
 			position: fixed;
 			z-index: 10000;
 
-			&:before {
-				/* black blurred overlay */
-				content: "";
-				width: 0%;
-				height: 100vh;
-				background: rgba(0, 0, 0, 0.6);
-				opacity: 0;
-				display: block;
-				position: absolute;
-				top: 100%;
-				right: 0;
-				z-index: -11;
-				transition: opacity 0.3s;
-				-webkit-backdrop-filter: blur(10px);
-				backdrop-filter: blur(10px);
-
-				@media (prefers-reduced-motion: no-preference) {
-					transition:
-						width 0.5s,
-						opacity 0.3s;
-				}
-			}
-
-			&.cs-active {
+			&.menu-active {
 				&:before {
 					width: 100%;
 					opacity: 1;
 				}
 
-				.cs-ul-wrapper {
+				.menu-ul-wrapper {
 					opacity: 1;
 					visibility: visible;
-					min-width: calc(100% / 3);
+					min-width: 100%;
 					@media (prefers-reduced-motion: no-preference) {
-						transform: scaleX(1);
+						transform: scaleY(1);
 						transition-delay: 0.2s;
 					}
 				}
@@ -195,12 +168,13 @@ import navData from "@data/navData.json";
 				.cs-li {
 					opacity: 1;
 					transform: translateX(0);
+					width: 100%;
 				}
 
 				.cs-li-nav {
 					text-decoration: none;
 					color: var(--bodyTextColor);
-					font-size: clamp(1rem, 2.5vw, 1.5rem)
+					font-size: clamp(1rem, 2.5vw, 1.5rem);
 				}
 			
 			}
@@ -256,26 +230,26 @@ import navData from "@data/navData.json";
 			}
 
 			@media (prefers-reduced-motion: no-preference) {
-				.cs-active {
-					.cs-line1 {
+				.menu-active {
+					.menu-line1 {
 						top: 50%;
 						transform: translate(-50%, -50%) rotate(225deg);
 					}
 
-					.cs-line2 {
+					.menu-line2 {
 						top: 50%;
 						transform: translate(-50%, -50%) translateY(0) rotate(-225deg);
 						transform-origin: center;
 					}
 
-					.cs-line3 {
+					.menu-line3 {
 						opacity: 0;
 						bottom: 100%;
 					}
 				}
 			}
 
-			.cs-box {
+			.menu-box {
 				/* 24px - 28px */
 				width: clamp(1.5rem, 2vw, 1.75rem);
 				/* 14px - 16px */
@@ -283,7 +257,7 @@ import navData from "@data/navData.json";
 				position: relative;
 			}
 
-			.cs-line {
+			.menu-line {
 				width: 100%;
 				height: 2px;
 				background-color: #000;
@@ -293,7 +267,7 @@ import navData from "@data/navData.json";
 				transform: translateX(-50%);
 			}
 
-			.cs-line1 {
+			.menu-line1 {
 				top: 0;
 
 				transition:
@@ -307,7 +281,7 @@ import navData from "@data/navData.json";
 				transform-origin: center;
 			}
 
-			.cs-line2 {
+			.menu-line2 {
 				top: 50%;
 				transform: translateX(-50%) translateY(-50%);
 				transition:
@@ -320,7 +294,7 @@ import navData from "@data/navData.json";
 				animation-fill-mode: forwards;
 			}
 
-			.cs-line3 {
+			.menu-line3 {
 				bottom: 0;
 				transition:
 					bottom 0.3s,
@@ -356,7 +330,7 @@ import navData from "@data/navData.json";
 			.cs-dropdown {
 				position: relative;
 
-				&.cs-active {
+				&.menu-active {
 					.cs-drop-ul {
 						height: auto;
 						margin: (12/16rem) 0 0 0;
@@ -364,6 +338,7 @@ import navData from "@data/navData.json";
 						opacity: 1;
 						visibility: visible;
 						transform: scale(1);
+						align-items: center;
 					}
 
 					.cs-drop-link {
@@ -386,7 +361,7 @@ import navData from "@data/navData.json";
 				transition: 0.3s;
 			}
 
-			.cs-ul-wrapper {
+			.menu-ul-wrapper {
 				height: 100vh;
 				background-color: #fff;
 				box-shadow: inset rgba(0, 0, 0, 0.2) 0rem 0.5rem 1.5rem;
@@ -399,7 +374,7 @@ import navData from "@data/navData.json";
 				z-index: -1;
 				overflow: hidden;
 				@media (prefers-reduced-motion: no-preference) {
-					transform: scaleX(0);
+					transform: scaleY(0);
 					transition:
 						transform 0.4s,
 						opacity 0.3s;
@@ -423,7 +398,7 @@ import navData from "@data/navData.json";
 			}
 
 			.cs-li {
-				text-align: right;
+				text-align: center;
 				list-style: none;
 				width: 100%;
 				margin-right: 0;
@@ -489,7 +464,7 @@ import navData from "@data/navData.json";
 					left: 0;
 				}
 
-				&.cs-active {
+				&.menu-active {
 					&:before {
 						display: block;
 					}
@@ -537,11 +512,11 @@ import navData from "@data/navData.json";
 					color: var(--bodyTextColorWhite);
 				}
 
-				.cs-line {
+				.menu-line {
 					background-color: #fff;
 				}
 
-				.cs-ul-wrapper {
+				.menu-ul-wrapper {
 					background-color: var(--primaryLight);
 				}
 
@@ -560,7 +535,7 @@ import navData from "@data/navData.json";
 			.cs-dropdown {
 				position: relative;
 				&:hover,
-				&.cs-active {
+				&.menu-active {
 					cursor: pointer;
 					.cs-drop-ul {
 						opacity: 1;
@@ -605,6 +580,8 @@ import navData from "@data/navData.json";
 				box-shadow: var(--boxShadow);
 				opacity: 0;
 				visibility: hidden;
+				text-align: center;
+				align-items: center;
 				/* if you have 8 or more links in your dropdown nav, uncomment the columns property to make the list into 2 even columns. Change it to 3 or 4 if you need extra columns. Then remove the transition delays on the cs-drop-li so they don't have weird scattered animations */
 				// columns: 2;
 				position: absolute;

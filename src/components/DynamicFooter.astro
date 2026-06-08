@@ -33,7 +33,7 @@ const currentYear = getCurrentYear();
 									// can link to folder as well
 									<a href={entry.url} class:list={[
 											"cs-li-nav",
-											{ "cs-active": Astro.url.pathname === (entry.url) },
+											{ "menu-active": Astro.url.pathname === (entry.url) },
 										]}>
 										{entry.key}
 									</a>
@@ -41,7 +41,7 @@ const currentYear = getCurrentYear();
 									// If entry does not have children in navData.json, create an anchor
 									<a href={entry.url} class:list={[
 											"cs-link",
-											{ "cs-active": Astro.url.pathname === (entry.url) },
+											{ "menu-active": Astro.url.pathname === (entry.url) },
 										]}>
 										{entry.key}
 									</a>
@@ -68,7 +68,7 @@ const currentYear = getCurrentYear();
 					<li class="cs-li">
 						<a href="/contact/" class:list={[
 											"cs-link",
-											{ "cs-active": Astro.url.pathname === "/contact/" },
+											{ "menu-active": Astro.url.pathname === "/contact/" },
 										]}> Contact </a>
 					</li>
 				</ul>
@@ -260,7 +260,7 @@ const currentYear = getCurrentYear();
 				}
 			}
 
-			.cs-active {
+			.menu-active {
 				// text-decoration: underline;
 			}
 

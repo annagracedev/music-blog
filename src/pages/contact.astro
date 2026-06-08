@@ -17,11 +17,11 @@ const optimizedImage = await getImage({ src: landingImage, format: "webp" });
 <BaseLayout title="Contact" description="Music composition lessons available online.">
 	<!-- <Banner title="Contact" image={optimizedImage} />-->
 
-	<section id="cs-contact">
+	<section id="contact">
 		<div class="cs-container">
 			<div class="content-card">
 				<label
-					id="cs-form"
+					id="form"
 					name="Contact Form"
 					method="post"
 					data-netlify="true"
@@ -87,7 +87,7 @@ const optimizedImage = await getImage({ src: landingImage, format: "webp" });
 
 		//MARK: Mobile - 360px
 		@media only screen and (min-width: 0em) {
-			#cs-contact {
+			#contact {
 				padding: var(--sectionPadding);
 
 				.cs-container {
@@ -127,7 +127,7 @@ const optimizedImage = await getImage({ src: landingImage, format: "webp" });
 					}
 				}
 
-				#cs-form {
+				#form {
 					margin-bottom: (40/16rem);
 					label {
 						font-size: (16/16rem);
@@ -280,8 +280,8 @@ const optimizedImage = await getImage({ src: landingImage, format: "webp" });
 
 		/* Tablet - 700px */
 		@media only screen and (min-width: 43.75em) {
-			#cs-contact {
-				#cs-form {
+			#contact {
+				#form {
 					display: flex;
 					justify-content: space-between;
 					align-items: flex-start;
@@ -300,7 +300,7 @@ const optimizedImage = await getImage({ src: landingImage, format: "webp" });
 
 		/* Small Desktop - 1024px */
 		@media only screen and (min-width: 64em) {
-			#cs-contact {
+			#contact {
 				.cs-container {
 					max-width: (1280/16rem);
 					display: flex;
@@ -309,7 +309,7 @@ const optimizedImage = await getImage({ src: landingImage, format: "webp" });
 					gap: (80/16rem);
 				}
 
-				#cs-form {
+				#form {
 					max-width: (630/16rem);
 					label {
 						width: 100%;
@@ -340,8 +340,8 @@ const optimizedImage = await getImage({ src: landingImage, format: "webp" });
 
 		/* Small Desktop - 1300px */
 		@media only screen and (min-width: 81.25em) {
-			#cs-contact {
-				#cs-form {
+			#contact {
+				#form {
 					column-gap: (0/16rem);
 					label {
 						width: 48%;
@@ -362,7 +362,7 @@ const optimizedImage = await getImage({ src: landingImage, format: "webp" });
 		/* Dark Mode */
 		@media only screen and (min-width: 0em) {
 			body.dark-mode {
-				#cs-contact {
+				#contact {
 					.cs-text,
 					.cs-title {
 						color: var(--bodyTextColorWhite);
@@ -372,7 +372,7 @@ const optimizedImage = await getImage({ src: landingImage, format: "webp" });
 						color: var(--primaryLight);
 					}
 
-					#cs-form {
+					#form {
 						label,
 						input,
 						textarea {
