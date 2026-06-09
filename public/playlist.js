@@ -53,6 +53,7 @@ Object.assign(MediaElementPlayer.prototype, {
 
 		player.endedCallback = function () {	
 			if (player.currentPlaylistItem < player.listItems.length) {
+
 				player.setSrc(player.playlist[++player.currentPlaylistItem].src);
 				player.load();
 				setTimeout(function () {
@@ -188,7 +189,10 @@ Object.assign(MediaElementPlayer.prototype, {
 				player.load();
 				player.play();
 			} else {
-				++player.currentPlaylistItem;
+				player.currentPlaylistItem = 0;
+				player.setSrc(player.playlist[player.currentPlaylistItem].src);
+				player.load();
+				player.play();
 			}
 		};
 
@@ -211,7 +215,10 @@ Object.assign(MediaElementPlayer.prototype, {
 				player.load();
 				player.play();
 			} else {
-				--player.currentPlaylistItem;
+				player.currentPlaylistItem = 0;
+				player.setSrc(player.playlist[player.currentPlaylistItem].src);
+				player.load();
+				player.play();
 			}
 		};
 

@@ -2,8 +2,6 @@
 
 # To do
 
-Make sure to mark this as under copyright.
-
 When clicking on a song, it adds 
 
 mejs__playlist-selected
@@ -14,7 +12,16 @@ and when clicking on another it removes this from the previously selected one an
 
 When songs advance from mejs__prev-button, mejs__next-button, or automatically advancing, it does not do this
 
-Remove header/footer info when printing
+It looks like the problem is that the code to play from those places is missing the logic to remove/add these classes
+
+It happens in these three player object functions:
+endedCallback
+nextPlaylistCallback 
+prevPlaylistCallback
+
+Take photos
+
+Make sure to mark this as under copyright.
 
 # Bug fixes
 
@@ -28,10 +35,6 @@ Clicking on the right song places a span so that may be a good starting point
 
 # To launch
 
-lots of url stuff
-
-lots of 404s (apple-touch-icon.png)
-
 Optimize images
 
-Favicons
+Make mp3s private if possible

@@ -1,5 +1,5 @@
 .mejs__container {
-	font-family: "Overpass", sans-serif;
+	font-family: "Overpass", Arial, sans-serif;
 }
 
 .mejs__controls {
@@ -135,6 +135,7 @@
 	margin: 0;
 	color: #fff;
 	font-style: normal;
+	text-align: left;
 }
 
 .mejs__playlist-selector-label>span,
