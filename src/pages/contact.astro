@@ -20,10 +20,10 @@ const optimizedImage = await getImage({ src: landingImage, format: "webp" });
 	<section id="contact">
 		<div class="cs-container">
 			<div class="content-card">
-				<label
+				<form
 					id="form"
-					name="Contact Form"
-					method="post"
+					name="Contact"
+					method="POST"
 					data-netlify="true"
 				>
 					<div class="cs-content">
@@ -66,7 +66,7 @@ const optimizedImage = await getImage({ src: landingImage, format: "webp" });
 					<div class="cs-submit">
 						<button class="cs-button-solid" type="submit">Send Message</button>
 					</div>
-				</label>
+				</form>
 			</div>
 			<div class="image-card">
 				<!-- Background Image-->

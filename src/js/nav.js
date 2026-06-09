@@ -1,6 +1,5 @@
 // Astro:page-load wrapper for View Transitions purposes
 document.addEventListener("astro:page-load", () => {
-	// Make the script controlling the <Hamburger /> mobile menu component available after navigating to a new page.
 
 	(() => {
 		// Configuration

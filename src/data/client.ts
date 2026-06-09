@@ -12,7 +12,7 @@ export const SITE = {
 export const OWNER = {
 	name: SITE.title,
 	email: "hello@annagrace.dev",
-	logo: "/assets/favicons/favicon.svg",
+	logo: "/assets/favicon.svg",
 	socials: {
 		facebook: "https://www.facebook.com/",
 		instagram: "https://www.instagram.com/",
