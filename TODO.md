@@ -23,6 +23,8 @@ Take photos
 
 Make sure to mark this as under copyright.
 
+Fix looping.
+
 # Bug fixes
 
 move playhead in music playlists
