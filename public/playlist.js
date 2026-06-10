@@ -51,23 +51,30 @@ Object.assign(MediaElementPlayer.prototype, {
 		player.originalControlsIndex = controls.style.zIndex;
 		controls.style.zIndex = 5;
 
-
-		player.endedCallback = function () {	
-			if (player.currentPlaylistItem < player.listItems.length) {
-
-				var selected = player.playlistLayer.querySelectorAll('.' + player.options.classPrefix + 'playlist-selected');
+		player.removePlayhead = function () {
+			var selected = player.playlistLayer.querySelectorAll('.' + player.options.classPrefix + 'playlist-selected');
 				for (var _j = 0, _total3 = selected.length; _j < _total3; _j++) {
 						mejs.Utils.removeClass(selected[_j], player.options.classPrefix + 'playlist-selected');
 						selected[_j].querySelector('label').querySelector('span').remove();
 				}
+		};
 
-				player.setSrc(player.playlist[++player.currentPlaylistItem].src);
-				player.load();
-
+		player.addPlayhead = function () {
 				var inputs = player.playlistLayer.querySelectorAll('input[type=radio]');
 				var _i3 = player.currentPlaylistItem;
 				inputs[_i3].closest('.' + player.options.classPrefix + 'playlist-selector-list-item').querySelector('label').innerHTML = '<span>\u25B6</span> ' + inputs[_i3].closest('.' + player.options.classPrefix + 'playlist-selector-list-item').querySelector('label').innerHTML;
 				mejs.Utils.addClass(inputs[_i3].closest('.' + player.options.classPrefix + 'playlist-selector-list-item'), player.options.classPrefix + 'playlist-selected');
+		};
+
+		player.endedCallback = function () {	
+			if (player.currentPlaylistItem < player.listItems.length) {
+
+				player.removePlayhead();
+
+				player.setSrc(player.playlist[++player.currentPlaylistItem].src);
+				player.load();
+
+				player.addPlayhead();
 
 				setTimeout(function () {
 					player.play();
@@ -197,12 +204,16 @@ Object.assign(MediaElementPlayer.prototype, {
 
 		player.prevPlaylistCallback = function () {
 			if (player.playlist[--player.currentPlaylistItem]) {
+				player.removePlayhead();
 				player.setSrc(player.playlist[player.currentPlaylistItem].src);
+				player.addPlayhead();
 				player.load();
 				player.play();
 			} else {
 				player.currentPlaylistItem = 0;
+				player.removePlayhead();
 				player.setSrc(player.playlist[player.currentPlaylistItem].src);
+				player.addPlayhead();
 				player.load();
 				player.play();
 			}
@@ -223,12 +234,16 @@ Object.assign(MediaElementPlayer.prototype, {
 
 		player.nextPlaylistCallback = function () {
 			if (player.playlist[++player.currentPlaylistItem]) {
+				player.removePlayhead();
 				player.setSrc(player.playlist[player.currentPlaylistItem].src);
+				player.addPlayhead();
 				player.load();
 				player.play();
 			} else {
 				player.currentPlaylistItem = 0;
+				player.removePlayhead();
 				player.setSrc(player.playlist[player.currentPlaylistItem].src);
+				player.addPlayhead();
 				player.load();
 				player.play();
 			}

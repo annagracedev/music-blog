@@ -19,11 +19,15 @@ endedCallback
 nextPlaylistCallback 
 prevPlaylistCallback
 
+I probably don't have time but if I have time, add another div ? underneath the current song title with the current song artist in a slightly smaller font
+
 Take photos
 
-Make sure to mark this as under copyright.
+Make sure to mark this as under copyright. Music, etc. I mean.
 
-Fix looping.
+Fix looping. Might need an else if under endedCallback function to handle looping because of the incremented src index?
+
+Yeah, add a little bit of logic to handle the end of the playlist and should be able to handle looping too
 
 # Bug fixes
 
@@ -32,8 +36,6 @@ move playhead in music playlists
 Clicking play on playlist controls does not actually play (maybe due to public script issues? ) Odd, it also happens in dev now
 
 I think other js files need to be wrapped in viewtransition
-
-Clicking on the right song places a span so that may be a good starting point
 
 # To launch
 
