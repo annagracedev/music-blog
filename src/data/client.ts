@@ -2,7 +2,7 @@
 export const SITE = {
 	title: "Anna Grace",
 	tagline: "Music Composition",
-	description: "Music composition and teaching",
+	description: "Music compositions and teaching",
 	url: "https://music.annagrace.dev",
 	author: "Anna Grace",
 	locale: "en",
