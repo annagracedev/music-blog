@@ -8,6 +8,16 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 // Images
 import cover from "@assets/images/blog/the-colors-of-light.png";
 
+// MP3s
+import track1 from "@assets/mp3s/The Colors of Light/01 - Nightshade.mp3";
+import track2 from "@assets/mp3s/The Colors of Light/02 - Retrograde Heart.mp3";
+import track3 from "@assets/mp3s/The Colors of Light/03 - Crow's Justice.mp3";
+import track4 from "@assets/mp3s/The Colors of Light/04 - Aria.mp3";
+import track5 from "@assets/mp3s/The Colors of Light/05 - Fantasy.mp3";
+import track6 from "@assets/mp3s/The Colors of Light/06 - Galanthus.mp3";
+import track7 from "@assets/mp3s/The Colors of Light/07 - DAYBREAK.mp3";
+import track8 from "@assets/mp3s/The Colors of Light/08 - All the Lights.mp3";
+
 ---
 <script is:inline src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/7.0.7/mediaelementplayer.min.css" rel="stylesheet">
@@ -37,14 +47,14 @@ import cover from "@assets/images/blog/the-colors-of-light.png";
 								pictureAttributes={{ class: "cs-picture" }}
 							/>
 						<audio id="audio-player" controls>
-							<source src="/assets/mp3s/The Colors of Light/01 - Nightshade.mp3" title="All the Colored Lights, Op. 1: No. 1, Nightshade" type="audio/mp3" />
-							<source src="/assets/mp3s/The Colors of Light/02 - Retrograde Heart.mp3" title="All the Colored Lights, Op. 1: No. 2, Retrograde Heart" type="audio/mp3" />
-							<source src="/assets/mp3s/The Colors of Light/03 - Crow's Justice.mp3" title="All the Colored Lights, Op. 1: No. 3, Crow’s Justice" type="audio/mp3" />
-							<source src="/assets/mp3s/The Colors of Light/04 - Aria.mp3" title="All the Colored Lights, Op. 1: No. 4, Aria" type="audio/mp3" />
-							<source src="/assets/mp3s/The Colors of Light/05 - Fantasy.mp3" title="All the Colored Lights, Op. 1: No. 5, Fantasy" type="audio/mp3" />
-							<source src="/assets/mp3s/The Colors of Light/06 - Galanthus.mp3" title="All the Colored Lights, Op. 1: No. 6, Galanthus" type="audio/mp3" />
-							<source src="/assets/mp3s/The Colors of Light/07 - DAYBREAK.mp3" title="All the Colored Lights, Op. 1: No. 7, DAYBREAK" type="audio/mp3" />
-							<source src="/assets/mp3s/The Colors of Light/08 - All the Lights.mp3" title="All the Colored Lights, Op. 1: No. 8, All the Lights" type="audio/mp3" />
+							<source src={track1} title="All the Colored Lights, Op. 1: No. 1, Nightshade" type="audio/mp3" />
+							<source src={track2} title="All the Colored Lights, Op. 1: No. 2, Retrograde Heart" type="audio/mp3" />
+							<source src={track3} title="All the Colored Lights, Op. 1: No. 3, Crow’s Justice" type="audio/mp3" />
+							<source src={track4} title="All the Colored Lights, Op. 1: No. 4, Aria" type="audio/mp3" />
+							<source src={track5} title="All the Colored Lights, Op. 1: No. 5, Fantasy" type="audio/mp3" />
+							<source src={track6} title="All the Colored Lights, Op. 1: No. 6, Galanthus" type="audio/mp3" />
+							<source src={track7} title="All the Colored Lights, Op. 1: No. 7, DAYBREAK" type="audio/mp3" />
+							<source src={track8} title="All the Colored Lights, Op. 1: No. 8, All the Lights" type="audio/mp3" />
 						</audio>
 						</div>
 					</div>

@@ -15,5 +15,3 @@ I think other js files need to be wrapped in viewtransition
 # To launch
 
 Optimize images
-
-Make mp3s private if possible
