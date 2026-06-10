@@ -67,15 +67,20 @@ Object.assign(MediaElementPlayer.prototype, {
 		};
 
 		player.endedCallback = function () {	
-			if (player.currentPlaylistItem < player.listItems.length) {
-
+			if (player.currentPlaylistItem < ( player.listItems.length - 1) ) {
 				player.removePlayhead();
-
 				player.setSrc(player.playlist[++player.currentPlaylistItem].src);
 				player.load();
-
+				player.addPlayhead();	
+				setTimeout(function () {
+					player.play();
+				}, 200);
+			} else if ((player.currentPlaylistItem < player.listItems.length) && player.options.loop) { // if looping is enabled
+				player.removePlayhead();
+				player.currentPlaylistItem = 0;
+				player.setSrc(player.playlist[player.currentPlaylistItem].src);
+				player.load();
 				player.addPlayhead();
-
 				setTimeout(function () {
 					player.play();
 				}, 200);
