@@ -1,9 +1,8 @@
 .mejs__container {
 	font-family: "Overpass", Arial, sans-serif;
-}
-
-.mejs__controls {
-	font-style: normal;
+	display: flex;
+	flex-grow: 1;
+	max-width: 100%;
 }
 
 .mejs__container.mejs__video,
@@ -13,7 +12,7 @@
 
 .mejs__container.mejs__audio,
 .mejs-container.mejs-audio {
-	min-height: 29.5rem;
+	min-height: 10rem;
 }
 
 .mejs__container.mejs__audio.mejs__no-playlist,
@@ -100,14 +99,14 @@
 	/* border-bottom: 1px solid #c8c8c8;
 	border-collapse: collapse; */
 	cursor: pointer;
-	display: table;
+	/*display: table;*/
 	list-style-type: none !important;
 	position: relative;
 	width: 100%;
 }
 
 .mejs__playlist-item-inner {
-	display: table-row;
+	/*display: table-row;*/
 	overflow: hidden;
 }
 
@@ -136,6 +135,8 @@
 	color: #fff;
 	font-style: normal;
 	text-align: left;
+	padding: 0 0.5rem 0 0.5rem;
+	margin-bottom: 0.5rem;
 }
 
 .mejs__playlist-selector-label>span,
@@ -192,7 +193,7 @@
 
 .mejs__playlist-item-thumbnail,
 .mejs-playlist-item-thumbnail {
-	display: table-cell;
+	/*display: table-cell;*/
 	padding: 0.75rem 0.5rem;
 	vertical-align: top;
 	width: 30%;
@@ -212,15 +213,15 @@
 
 .mejs__playlist-item-content,
 .mejs-playlist-item-content {
-	display: table-cell;
+	/*display: table-cell;*/
 	padding: 0.75rem;
-	width: 70%;
+	/*width: 70%;*/
 }
 
 .mejs__container.mejs__audio .mejs__playlist-item-content,
 .mejs-container.mejs-audio .mejs-playlist-item-content {
 	margin: 0;
-	width: 85%;
+	width: 100%;
 }
 
 .mejs__playlist-item-description,
@@ -235,7 +236,7 @@
 	background: #000;
 	height: auto !important;
 	width: auto !important;
-	left: 0.5rem;
+	/*left: 0.5rem;*/
 	bottom: 1.8rem;
 	position: absolute;
 	z-index: 3;
@@ -261,4 +262,5 @@
 .mejs-playlist-current-description {
 	font-style: italic;
 	font-size: 1rem;
+	padding: 0 0.5rem 0 0.5rem;
 }
