@@ -1,6 +1,6 @@
 ---
 // Utils
-import { getImage, Picture } from "astro:assets";
+import { Picture } from "astro:assets";
 
 // Components
 import BaseLayout from "@layouts/BaseLayout.astro";
@@ -26,14 +26,14 @@ import track8 from "@assets/mp3s/The Colors of Light/08 - All the Lights.mp3";
 <script is:inline src="/playlist.js"></script>
 
 <BaseLayout
-	title="All the Colored Lights, Op. 1"
+	title="All the Lights, Op. 1"
 	description="Suite for Bb clarinet, harp, piano, violoncello, and double bass"
 >
 	<main id="main">
 		<section id="content">
 			<div class="cs-container">
 				<div class="cs-content">
-					<h1>All the Colored Lights, Op. 1 (2020, rev. 2025)</h1>
+					<h1>All the Lights, Op. 1 (2020, rev. 2025)</h1>
 					<h2>Suite for B♭ clarinet, harp, piano, violoncello, and double bass</h2>
 				</div>
 				<div class="audio-player-border">
@@ -47,14 +47,14 @@ import track8 from "@assets/mp3s/The Colors of Light/08 - All the Lights.mp3";
 								pictureAttributes={{ class: "cs-picture" }}
 							/>
 						<audio id="audio-player" controls>
-							<source src={track1} title="All the Colored Lights, Op. 1: No. 1, Nightshade" type="audio/mp3" />
-							<source src={track2} title="All the Colored Lights, Op. 1: No. 2, Retrograde Heart" type="audio/mp3" />
-							<source src={track3} title="All the Colored Lights, Op. 1: No. 3, Crow’s Justice" type="audio/mp3" />
-							<source src={track4} title="All the Colored Lights, Op. 1: No. 4, Aria" type="audio/mp3" />
-							<source src={track5} title="All the Colored Lights, Op. 1: No. 5, Fantasy" type="audio/mp3" />
-							<source src={track6} title="All the Colored Lights, Op. 1: No. 6, Galanthus" type="audio/mp3" />
-							<source src={track7} title="All the Colored Lights, Op. 1: No. 7, DAYBREAK" type="audio/mp3" />
-							<source src={track8} title="All the Colored Lights, Op. 1: No. 8, All the Lights" type="audio/mp3" />
+							<source src={track1} title="All the Lights, Op. 1: No. 1, Nightshade" type="audio/mp3" />
+							<source src={track2} title="All the Lights, Op. 1: No. 2, Retrograde Heart" type="audio/mp3" />
+							<source src={track3} title="All the Lights, Op. 1: No. 3, Crow’s Justice" type="audio/mp3" />
+							<source src={track4} title="All the Lights, Op. 1: No. 4, Aria" type="audio/mp3" />
+							<source src={track5} title="All the Lights, Op. 1: No. 5, Fantasy" type="audio/mp3" />
+							<source src={track6} title="All the Lights, Op. 1: No. 6, Galanthus" type="audio/mp3" />
+							<source src={track7} title="All the Lights, Op. 1: No. 7, DAYBREAK" type="audio/mp3" />
+							<source src={track8} title="All the Lights, Op. 1: No. 8, All the Lights" type="audio/mp3" />
 						</audio>
 						</div>
 					</div>
@@ -126,7 +126,7 @@ import track8 from "@assets/mp3s/The Colors of Light/08 - All the Lights.mp3";
 				width: 400px;
 			}
 		max-width: 25rem;
-		min-height: 54rem !important;
+		min-height: 52.5rem !important;
 		display: flex;
 		flex-direction: column;
 		align-items: center;

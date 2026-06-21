@@ -4,11 +4,9 @@ import { Picture, getImage } from "astro:assets";
 
 // Components
 import BaseLayout from "@layouts/BaseLayout.astro";
-// import Banner from "@components/Banner/Banner.astro";
 
 // Images
-import landingImage from "@assets/images/matteo-vistocco-02qxB--kyAU-unsplash.webp"; // <-- THE PATH TO THE ASSET YOU WANT TO PRELOAD - The asset must live in src
-//const optimizedImage = await getImage({ src: landingImage, format: "jpg" });
+import landingImage from "@assets/images/matteo-vistocco-02qxB--kyAU-unsplash.webp";
 
 const currentDate = new Date();
 const currentYear = currentDate.getFullYear();
@@ -25,7 +23,7 @@ const musicYears = (() => {
 ---
 
 <!-- heroImage={optimizedImage}-->
-<BaseLayout title="About" description="Modern classical composer trained in Western music theory.">
+<BaseLayout title="About" description="A modern classical composer trained in Western music theory.">
 	<!-- <Banner title="Contact" image={optimizedImage} />-->
 
 	<section id="contact">
@@ -53,7 +51,7 @@ const musicYears = (() => {
 							I studied music composition with Dr. Robert Fruehwald and harp performance with Maria Duhova-Trevor, Chadie Fruehwald, and Sue Taylor.
 						</p>
 						<p>
-							Contact me for music composition lessons.
+							Contact me about music composition lessons.
 						</p>
 					</div>
 				</div>

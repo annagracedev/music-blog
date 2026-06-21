@@ -1,6 +1,6 @@
 ---
 // Utils
-import { Picture, getImage } from "astro:assets";
+import { getImage } from "astro:assets";
 
 // Components
 import BaseLayout from "@layouts/BaseLayout.astro";
@@ -9,7 +9,6 @@ import CTABanner from "@components/CTABanner.astro";
 
 // Images
 import heroImg from "@assets/images/sandra-mosconi-t1Eap41N4ms-unsplash.webp";
-import listenNowImg from "@assets/images/blog/the-colors-of-light.png";
 
 const optimizedImage = await getImage({
 	src: heroImg,
@@ -34,9 +33,9 @@ const optimizedImage = await getImage({
 			</div>
 		</section>
 		<CTABanner 
-			url="/music/all-the-colored-lights-op-1/"
+			url="/music/all-the-lights-op-1/"
 			button="Listen&nbsp;Now"
-			title="All the Colored Lights, Op. 1"
+			title="All the Lights, Op. 1"
 		/>
 	</main>
 </BaseLayout>
