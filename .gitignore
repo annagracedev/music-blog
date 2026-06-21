@@ -27,3 +27,6 @@ pnpm-debug.log*
 scripts/deleted/
 .demo-removed
 node_modules
+
+# vscode settings
+.vscode/
